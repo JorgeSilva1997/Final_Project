@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login"
+    android:background="@mipmap/background">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/firsLayout"
+        android:layout_marginRight="75dp"
+        android:layout_marginTop="40dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:src="@mipmap/apm"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/secondLayout"
+        android:layout_below="@id/firsLayout"
+        android:layout_marginTop="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+
+                <!-- CAMPO USERNAME -->
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_user"
+            android:id="@+id/imgUser"
+            android:layout_alignLeft="@id/user"
+            android:layout_marginTop="9dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/user"
+            android:hint="      Username "
+            android:textColorHint="#FFFFFF"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            android:inputType="text"
+            android:layout_marginRight="75dp"
+            android:layout_marginLeft="75dp"/>
+
+                <!-- FIM DO CAMPO USERNAME -->
+
+                <!-- CAMPO PASSWORD -->
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_pass"
+            android:id="@+id/imgPass"
+            android:layout_alignLeft="@id/pass"
+            android:layout_below="@id/user"
+            android:layout_marginTop="23dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/user"
+            android:layout_marginTop="15dp"
+            android:id="@+id/pass"
+            android:hint="      Password "
+            android:inputType="textPassword"
+            android:textColorHint="#FFFFFF"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+
+            android:layout_marginRight="75dp"
+            android:layout_marginLeft="75dp"/>
+
+                <!-- FIM DO CAMPO USERNAME -->
+
+                    <!-- BOTÕES -->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pass"
+            android:id="@+id/btnLogin"
+            android:onClick="btnLogin"
+            android:layout_marginTop="50dp"
+            android:hint=" Log In "
+            android:fontFamily="monospace"
+            android:textColorHint="#FFFFFF"
+            android:textSize="20dp"
+            android:background="@drawable/btn_border"
+            android:layout_marginRight="75dp"
+            android:layout_marginLeft="75dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnLogin"
+            android:id="@+id/btnForgot"
+            android:layout_marginTop="5dp"
+            android:hint="Forgot your password?"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textColorHint="#FFFFFF"
+            android:textSize="14dp"
+            android:background="@android:color/transparent"
+            android:layout_marginRight="100dp"
+            android:layout_marginLeft="100dp"/>
+
+<!--
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:id="@+id/question"
+            android:layout_below="@id/btnForgot"
+            android:hint="Don't have an account?"
+            android:textColorHint="#FFFFFF"
+            android:fontFamily="sans-serif-smallcaps"
+            android:layout_marginLeft="75dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/question"
+            android:layout_below="@id/btnForgot"
+            android:hint=" Create one."
+            android:id="@+id/btnRegist"
+            android:layout_marginTop="35dp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textColorHint="#FFFFFF"
+            android:background="@android:color/transparent"/>
+-->
+    </RelativeLayout>
+
+</RelativeLayout>

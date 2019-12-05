@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Main"
+    android:background="#000000">
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="75dp"
+        android:id="@+id/firsLayout">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/cards"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/firsLayout"
+        android:layout_marginTop="75dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_centerVertical="true">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/convocatoria"
+        android:background="@drawable/buttonshape"
+
+        android:shadowColor="#000000"
+        android:textSize="20dp"
+        android:fontFamily="serif"
+        android:hint="Convocatória"
+        android:textColorHint="#FFFFFF"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/jogo"
+            android:layout_below="@id/convocatoria"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/buttonshape"
+
+            android:shadowColor="#000000"
+            android:textSize="20dp"
+            android:fontFamily="serif"
+            android:hint="Jogos"
+            android:textColorHint="#FFFFFF"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/result"
+            android:layout_below="@id/jogo"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/buttonshape"
+
+            android:shadowColor="#000000"
+            android:textSize="20dp"
+            android:fontFamily="serif"
+            android:hint="Resultados"
+            android:textColorHint="#FFFFFF"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Login ADMIN"
+            android:onClick="btnAdmin"
+            android:id="@+id/btnAdmin"
+            android:layout_below="@id/result"/>
+
+
+</RelativeLayout>
+</RelativeLayout>
