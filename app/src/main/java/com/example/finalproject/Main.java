@@ -15,17 +15,4 @@ public class Main extends AppCompatActivity {
         setContentView(R.layout.main);
     }
 
-    public void btnAdmin(View view)
-    {
-        Button admin = (Button)findViewById(R.id.btnAdmin);
-
-        admin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(Main.this, Login_Admin.class);
-                startActivity(intent);
-            }
-        });
-    }
 }

@@ -14,10 +14,7 @@
         android:layout_marginTop="75dp"
         android:id="@+id/firsLayout">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/cards"/>
+
 
     </RelativeLayout>
 
@@ -40,7 +37,7 @@
         android:shadowColor="#000000"
         android:textSize="20dp"
         android:fontFamily="serif"
-        android:hint="Convocatória"
+        android:hint="Convocatórias"
         android:textColorHint="#FFFFFF"/>
 
         <Button
@@ -54,7 +51,7 @@
             android:shadowColor="#000000"
             android:textSize="20dp"
             android:fontFamily="serif"
-            android:hint="Jogos"
+            android:hint="Os Meus Jogos"
             android:textColorHint="#FFFFFF"/>
 
         <Button
@@ -68,16 +65,9 @@
             android:shadowColor="#000000"
             android:textSize="20dp"
             android:fontFamily="serif"
-            android:hint="Resultados"
+            android:hint="Meu Perfil"
             android:textColorHint="#FFFFFF"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Login ADMIN"
-            android:onClick="btnAdmin"
-            android:id="@+id/btnAdmin"
-            android:layout_below="@id/result"/>
 
 
 </RelativeLayout>
