@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Main_admin">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+    <!-- Primeiro Layout
+        Referente aos 2 primeiros botoes    -->
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/FirstLayout">
+
+        <!-- BOTOES -->
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/FirstSubLayout">
+            <ImageButton
+                android:id="@+id/imgConvocatoria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/convocatoria2"
+                android:layout_centerHorizontal="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtConvocatoria"
+                android:layout_below="@id/imgConvocatoria"
+                android:hint="Convocatorias"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/FirstSubLayout"
+            android:layout_marginLeft="75dp"
+            android:id="@+id/FirstSub2Layout">
+            <ImageButton
+                android:id="@+id/imgEquipa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/team2"
+                android:layout_centerHorizontal="true"/>
+            <TextView
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtEquipa"
+                android:layout_below="@id/imgEquipa"
+                android:hint="Equipas"/>
+
+        </RelativeLayout>
+        <!-- FIM DOS BOTOES -->
+
+    </RelativeLayout>
+
+    <!-- Segundo Layout
+        Referente ao 3 e 4 botoes   -->
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/SecondLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/FirstLayout">
+
+        <!-- BOTOES -->
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/SecondSubLayout">
+            <ImageButton
+                android:id="@+id/imgEscalao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/escalao2"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtEscalao"
+                android:layout_below="@id/imgEscalao"
+                android:hint="Escalões"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/SecondSubLayout"
+            android:layout_marginLeft="75dp"
+            android:id="@+id/SecondSub2Layout">
+            <ImageButton
+                android:id="@+id/imgPavilhao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/pavilhao2"
+                android:layout_centerHorizontal="true"/>
+            <TextView
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtPavilhao"
+                android:layout_below="@id/imgPavilhao"
+                android:hint="Pavilhões"/>
+
+        </RelativeLayout>
+        <!-- FIM DOS BOTOES -->
+
+
+    </RelativeLayout>
+
+    <!-- Terceiro Layout
+        Referente aos 2 ultimos botoes  -->
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ThirdLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/SecondLayout">
+
+        <!-- BOTOES -->
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ThirdSubLayout">
+            <ImageButton
+                android:id="@+id/imgProva"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/prova2"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtProva"
+                android:layout_below="@id/imgProva"
+                android:hint="Provas"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/ThirdSubLayout"
+            android:layout_marginLeft="75dp"
+            android:id="@+id/ThirdSub2Layout">
+            <ImageButton
+                android:id="@+id/imgProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/profile2"
+                android:layout_centerHorizontal="true"/>
+            <TextView
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtProfile"
+                android:layout_below="@id/imgProfile"
+                android:hint="User's"/>
+
+        </RelativeLayout>
+        <!-- FIM DOS BOTOES -->
+
+    </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>
