@@ -6,6 +6,31 @@
     tools:context=".Main"
     android:background="#FFFFFF">
 
+    <!--    WELCOME     -->
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/WelcomeLayout">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="75dp"
+            android:textSize="30sp"
+            android:text="User Portal"
+            android:textColor="#000000"
+            android:shadowColor="#5F000000"
+            android:shadowDx="10"
+            android:shadowDy="10"
+            android:shadowRadius="0.1" />
+
+    </RelativeLayout>
+
+    <!--    FIM WELCOME -->
+
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -66,6 +91,7 @@
         android:layout_below="@id/MasterLayout">
         <ImageButton
             android:id="@+id/imgPerfil"
+            android:onClick="btnPerfil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/profile2"

@@ -21,6 +21,7 @@
         <activity android:name=".Login_Admin"></activity>
         <activity android:name=".Regist"></activity>
         <activity android:name=".Main"></activity>
+        <activity android:name=".Perfil_User"></activity>
     </application>
 
 </manifest>
