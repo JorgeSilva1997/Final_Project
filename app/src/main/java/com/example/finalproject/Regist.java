@@ -1,18 +1,17 @@
 package com.example.finalproject;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.math.BigInteger;
 import java.util.regex.Pattern;
+
 
 public class Regist extends AppCompatActivity {
 
@@ -21,57 +20,55 @@ public class Regist extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.regist);
     }
-/*
-    public void goToMain(View view)
-    {
 
-        Intent i = new Intent(Regist.this, XPTO.class);
-        startActivity(i);
-
-    }
-*/
     public void btnRegist(View view)
     {
 
-        final EditText nome = (EditText) findViewById(R.id.name);
-        final EditText password = (EditText) findViewById(R.id.password);
-        final EditText email = (EditText) findViewById(R.id.email);
-        final EditText numero = (EditText) findViewById(R.id.number);
-        final EditText NIF = (EditText) findViewById(R.id.nif);
+        EditText nome = (EditText) findViewById(R.id.name);
+        EditText password = (EditText) findViewById(R.id.password);
+        EditText email = (EditText) findViewById(R.id.email);
+        EditText numero = (EditText) findViewById(R.id.number);
+        EditText NIF = (EditText) findViewById(R.id.nif);
         //final Spinner type = (Spinner) findViewById(R.id.spinnerTipo);
 
+        String name = nome.getText().toString();
+        String pass = password.getText().toString();
+        String mail = email.getText().toString();
+        String number = numero.getText().toString();
+        String nif = NIF.getText().toString();
         Button regist = (Button) findViewById(R.id.btnregist);
 
-        regist.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String name = nome.getText().toString();
-                String pass = password.getText().toString();
-                String mail = email.getText().toString();
-                String number = numero.getText().toString();
-                String nif = NIF.getText().toString();
-                //String tipo = type.getTe
 
-        // Restrições à inserção de USER's
-        if (name.equals("") || pass.equals("") || mail.equals("") || number.equals("") || nif.equals(""))
-        {
-            // Mensagem de WARNING para campos vazios
-            Toast.makeText(Regist.this, "Campos vazios", Toast.LENGTH_LONG).show();
-        }
-        else
-            {
-                // Mensagem de Bem-vindo
-                Toast.makeText(getApplicationContext(), "Entrou", Toast.LENGTH_SHORT).show();
+        //validating inputs
+                if (TextUtils.isEmpty(name)) {
+                    nome.setError("Please enter your username");
+                    nome.requestFocus();
+                    return;
+                }
 
-                // Verificar se o USER já existe
-
-
-                // Inserir USER na BD
-
-            }
-
-            }
-        });
+                if (TextUtils.isEmpty(pass)) {
+                    password.setError("Please enter your password");
+                    password.requestFocus();
+                    return;
+                }
+                if (TextUtils.isEmpty(mail)) {
+                    email.setError("Please enter your email");
+                    email.requestFocus();
+                    return;
+                }
+                if (TextUtils.isEmpty(number)) {
+                    numero.setError("Please enter your number");
+                    numero.requestFocus();
+                    return;
+                }
+                if (TextUtils.isEmpty(nif)) {
+                    NIF.setError("Please enter your NIF");
+                    NIF.requestFocus();
+                    return;
+                }
+                else {
+                    //insert();
+                }
     }
 
 
@@ -119,11 +116,7 @@ public class Regist extends AppCompatActivity {
         final EditText email = (EditText) findViewById(R.id.email);
         String emailInput = email.getText().toString();
 
-        if (emailInput.isEmpty())
-        {
-            email.setError("Campo Vazio");
-        }
-        else if (!Patterns.EMAIL_ADDRESS.matcher(emailInput).matches())
+        if (!Patterns.EMAIL_ADDRESS.matcher(emailInput).matches())
         {
             email.setError("Please enter a valid email address");
         }

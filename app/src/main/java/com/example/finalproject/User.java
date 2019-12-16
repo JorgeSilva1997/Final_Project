@@ -2,47 +2,63 @@ package com.example.finalproject;
 
 public class User {
 
-    private int id, number, nif, tipo;
-    private String nome, password, email;
+    //public int id;
+    public String nome, password, email, number, nif/*, tipo*/;
 
-    public User(int id, int number, int nif, int tipo, String nome, String password, String email)
+    public User(/*int id,*/ String nome, String password, String email, String number, String nif/*, String tipo*/)
     {
-        this.id = id;
-        this.number = number;
-        this.nif = nif;
-        this.tipo = tipo;
+       // this.id = id;
         this.nome = nome;
         this.password = password;
         this.email = email;
+        this.number = number;
+        this.nif = nif;
+        //this.tipo = tipo;
     }
 
-    public int getId() {
+    //public User() {}
+
+    /*public int getId() {
         return id;
     }
 
-    public int getNumber() {
+    public void setId(int id) {this.id = id;}
+*/
+    public String getNumber() {
         return number;
     }
 
-    public int getNif() {
+    public void setNumber(String number) {this.number = number;}
+
+    public String getNif() {
         return nif;
     }
 
-    public int getTipo() {
+    public void setNif(String nif) {this.nif = nif;}
+
+  /*  public String getTipo() {
         return tipo;
     }
 
+    public void setTipo(String tipo) {this.tipo = tipo;}
+*/
     public String getNome() {
         return nome;
     }
+
+    public void setNome(String nome) {this.nome = nome;}
 
     public String getPassword() {
         return password;
     }
 
+    public void setPassword(String password) {this.password = password;}
+
     public String getEmail() {
         return email;
     }
+
+    public void setEmail(String email) {this.email = email;}
 
 
 }

@@ -17,23 +17,20 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 public class Perfil_User extends AppCompatActivity {
 
     String prefix_url = "http://andrefelix.dynip.sapo.pt/projetofinalpm/index.php";
     int id;
 
-    TextView nome = (TextView) findViewById(R.id.EditTextNome);
-    TextView password = (TextView) findViewById(R.id.EditTextPassword);
-    TextView email = (TextView) findViewById(R.id.EditTextEmail);
-    TextView numero = (TextView) findViewById(R.id.EditTextNumber);
-    TextView nif = (TextView) findViewById(R.id.EditTextNif);
+    TextView nome;
+    TextView password;
+    TextView email;
+    TextView numero;
+    TextView nif;
 
-    /*String NOME = nome.getText().toString();
-    String PASSWORD = password.getText().toString();
-    String EMAIL = email.getText().toString();
-    String NUMERO = numero.getText().toString();
-    String NIF = nif.getText().toString();*/
-
+    ArrayList<User> arrayUser = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +40,17 @@ public class Perfil_User extends AppCompatActivity {
 
         Toast.makeText(Perfil_User.this, "" + id, Toast.LENGTH_SHORT).show();
 
+        nome = (TextView) findViewById(R.id.EditTextNome);
+        password = (TextView) findViewById(R.id.EditTextPassword);
+        email = (TextView) findViewById(R.id.EditTextEmail);
+        numero = (TextView) findViewById(R.id.EditTextNumber);
+        nif = (TextView) findViewById(R.id.EditTextNif);
+
         perfil();
     }
 
     public void perfil() {
+
         String url = prefix_url + "/api/utilizadores/" + id;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
@@ -61,14 +65,14 @@ public class Perfil_User extends AppCompatActivity {
 
                                 for (int i = 0; i < array.length(); i++) {
 
-                                    // CODIGO
+
                                     JSONObject object1 = array.getJSONObject(i);
+                                    arrayUser.add(new User(/*id, */object1.getString("nome"), object1.getString("password"), object1.getString("email"), object1.getString("number"), object1.getString("nif")/*, object1.getString("tipo")*/));
                                     nome.setText(object1.getString("nome"));
                                     password.setText(object1.getString("password"));
                                     email.setText(object1.getString("email"));
-                                    numero.setText(object1.getString("numero"));
-                                    nif.setText(object1.getString("nif"));
-
+                                    numero.setText(String.valueOf(object1.getInt("number")));
+                                    nif.setText(String.valueOf(object1.getInt("nif")));
                                 }
 
                             } else {

@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -111,7 +110,7 @@ public class Login extends AppCompatActivity {
                                 if (tipo == 0){
                                     Intent intent = new Intent(Login.this, Main_admin.class);
                                     intent.putExtra("ID", response.getInt("id"));
-                                    //intent.putExtra("TIPO", response.getInt("tipo"));
+                                    //intent.putExtra("TIPO", response.getInt("tipo")w);
                                     startActivity(intent);
                                 }
                                 else {

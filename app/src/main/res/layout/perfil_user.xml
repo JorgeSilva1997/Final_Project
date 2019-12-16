@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/WelcomeLayout"
         android:layout_marginTop="125dp"
-        android:layout_marginLeft="75dp"
+        android:layout_marginLeft="25dp"
         android:layout_marginRight="75dp">
     <!-- CAMPO NOME -->
     <TextView

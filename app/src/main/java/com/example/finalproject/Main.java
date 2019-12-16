@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Main extends AppCompatActivity {
 
-    String prefix_url = "http://andrefelix.dynip.sapo.pt/projetofinalpm/index.php";
     int id, tipo;
     String nome, password, email, numero, nif;
 
