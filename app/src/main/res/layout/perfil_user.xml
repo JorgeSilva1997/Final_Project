@@ -46,7 +46,6 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/EditTextNome"
                 android:layout_toRightOf="@id/txtNome"
-                android:autofillHints=""
                 android:inputType="text"
                 android:textSize="22sp"
                 android:layout_marginLeft="12dp" />
@@ -68,7 +67,6 @@
             android:layout_toRightOf="@id/txtPassword"
             android:layout_below="@id/txtNome"
             android:layout_marginTop="18dp"
-            android:autofillHints=""
             android:inputType="textPassword"
             android:textSize="22sp"
             android:layout_marginLeft="12dp" />
@@ -90,7 +88,6 @@
             android:layout_toRightOf="@id/txtEmail"
             android:layout_below="@id/txtPassword"
             android:layout_marginTop="18dp"
-            android:autofillHints=""
             android:inputType="textEmailAddress"
             android:textSize="22sp"
             android:layout_marginLeft="12dp" />
@@ -112,7 +109,6 @@
             android:layout_toRightOf="@id/txtNumber"
             android:layout_below="@id/txtEmail"
             android:layout_marginTop="18dp"
-            android:autofillHints=""
             android:inputType="number"
             android:textSize="22sp"
             android:layout_marginLeft="12dp" />
@@ -134,7 +130,6 @@
             android:layout_toRightOf="@id/txtNif"
             android:layout_below="@id/txtNumber"
             android:layout_marginTop="18dp"
-            android:autofillHints=""
             android:inputType="number"
             android:textSize="22sp"
             android:layout_marginLeft="12dp" />

@@ -107,10 +107,19 @@ public class Login extends AppCompatActivity {
                             //Toast.makeText(Login.this, "" + status, Toast.LENGTH_SHORT).show();
 
                             if (status) {
-                                Intent intent = new Intent(Login.this, Main.class);
-                                intent.putExtra("ID", response.getInt("id"));
-                                intent.putExtra("TIPO", response.getInt("tipo"));
-                                startActivity(intent);
+                                int tipo = response.getInt("tipo");
+                                if (tipo == 0){
+                                    Intent intent = new Intent(Login.this, Main_admin.class);
+                                    intent.putExtra("ID", response.getInt("id"));
+                                    //intent.putExtra("TIPO", response.getInt("tipo"));
+                                    startActivity(intent);
+                                }
+                                else {
+                                    Intent intent = new Intent(Login.this, Main.class);
+                                    intent.putExtra("ID", response.getInt("id"));
+                                    //intent.putExtra("TIPO", response.getInt("tipo"));
+                                    startActivity(intent);
+                                }
 
                             } else {
                                 Toast.makeText(Login.this, "Login Falhou!", Toast.LENGTH_SHORT).show();
