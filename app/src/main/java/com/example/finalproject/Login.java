@@ -83,7 +83,7 @@ public class Login extends AppCompatActivity {
 
     public void autenticacao(String nome, String password)  {
 
-        String url = prefix_url + "/teste/user/login";
+        String url = prefix_url + "/user/login";
         //SharedPreferences pref = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         //String usernamesp = pref.getString(PREF_USERNAMESP, null);
         //String passwordsp = pref.getString(PREF_PASSWORDSP, null);
