@@ -1,4 +1,4 @@
-package com.example.finalproject;
+package com.example.finalproject.LOGIN;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,6 +19,11 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.finalproject.MAIN.Main;
+import com.example.finalproject.MAIN.Main_admin;
+import com.example.finalproject.R;
+import com.example.finalproject.VolleySingleton;
+import com.example.finalproject.md5;
 
 
 import java.math.BigInteger;
@@ -90,9 +95,9 @@ public class Login extends AppCompatActivity {
         Map<String, String> jsonParams = new HashMap<String, String>();
 
         jsonParams.put("nome", nome);
-        //String md5Str = computeMD5Hash(password);
-        //jsonParams.put("password", md5Str);
-        jsonParams.put("password", password);
+        String md5Str = computeMD5Hash(password);
+        jsonParams.put("password", md5Str);
+        //jsonParams.put("password", password);
 
         JsonObjectRequest postRequest = new JsonObjectRequest(Request.Method.POST, url,
 
@@ -110,7 +115,7 @@ public class Login extends AppCompatActivity {
                                 if (tipo == 0){
                                     Intent intent = new Intent(Login.this, Main_admin.class);
                                     intent.putExtra("ID", response.getInt("id"));
-                                    //intent.putExtra("TIPO", response.getInt("tipo")w);
+                                    //intent.putExtra("TIPO", response.getInt("tipo"));
                                     startActivity(intent);
                                 }
                                 else {

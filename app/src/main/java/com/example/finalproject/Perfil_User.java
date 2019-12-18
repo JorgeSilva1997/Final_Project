@@ -1,8 +1,6 @@
 package com.example.finalproject;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -64,7 +62,6 @@ public class Perfil_User extends AppCompatActivity {
                                 JSONArray array = response.getJSONArray("DATA");
 
                                 for (int i = 0; i < array.length(); i++) {
-
 
                                     JSONObject object1 = array.getJSONObject(i);
                                     arrayUser.add(new User(/*id, */object1.getString("nome"), object1.getString("password"), object1.getString("email"), object1.getString("number"), object1.getString("nif")/*, object1.getString("tipo")*/));

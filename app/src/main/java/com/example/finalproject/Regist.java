@@ -5,8 +5,10 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,47 +31,61 @@ import java.util.regex.Pattern;
 public class Regist extends AppCompatActivity {
 
     String prefix_url = "http://andrefelix.dynip.sapo.pt/projetofinalpm/index.php/api";
-
+    int tipo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.regist);
+
+        tipo = 0;
+
+        Spinner spinTipo = findViewById(R.id.spinnerTipo);
+        spinTipo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                tipo = position;
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
     public void btnRegist(View view)
     {
 
-        EditText nome = (EditText) findViewById(R.id.name);
-        EditText password = (EditText) findViewById(R.id.password);
-        EditText email = (EditText) findViewById(R.id.email);
+        EditText name = (EditText) findViewById(R.id.name);
+        EditText pass = (EditText) findViewById(R.id.password);
+        EditText mail = (EditText) findViewById(R.id.email);
         EditText numero = (EditText) findViewById(R.id.number);
         EditText NIF = (EditText) findViewById(R.id.nif);
         //final Spinner type = (Spinner) findViewById(R.id.spinnerTipo);
 
-        String name = nome.getText().toString();
-        String pass = password.getText().toString();
-        String mail = email.getText().toString();
+        String nome = name.getText().toString();
+        String password = pass.getText().toString();
+        String email = mail.getText().toString();
         String number = numero.getText().toString();
         String nif = NIF.getText().toString();
         Button regist = (Button) findViewById(R.id.btnregist);
 
 
         //validating inputs
-                if (TextUtils.isEmpty(name)) {
-                    nome.setError("Please enter your username");
-                    nome.requestFocus();
+                if (TextUtils.isEmpty(nome)) {
+                    name.setError("Please enter your username");
+                    name.requestFocus();
                     return;
                 }
 
-                if (TextUtils.isEmpty(pass)) {
-                    password.setError("Please enter your password");
-                    password.requestFocus();
+                if (TextUtils.isEmpty(password)) {
+                    pass.setError("Please enter your password");
+                    pass.requestFocus();
                     return;
                 }
-                if (TextUtils.isEmpty(mail)) {
-                    email.setError("Please enter your email");
-                    email.requestFocus();
+                if (TextUtils.isEmpty(email)) {
+                    mail.setError("Please enter your email");
+                    mail.requestFocus();
                     return;
                 }
                 if (TextUtils.isEmpty(number)) {
@@ -84,7 +100,7 @@ public class Regist extends AppCompatActivity {
                 }
                 else {
 
-                    insert(name, pass, mail, number, nif);
+                    insert(nome, password, email, number, nif, tipo);
                 }
     }
 
@@ -128,7 +144,7 @@ public class Regist extends AppCompatActivity {
     }
 
     // Check Email is Valid
-    private boolean validateEmail()
+    public String validateEmail(String mail)
     {
         final EditText email = (EditText) findViewById(R.id.email);
         String emailInput = email.getText().toString();
@@ -140,7 +156,7 @@ public class Regist extends AppCompatActivity {
         else
         {
             email.setError(null);
-        }   return true;
+        }   return mail;
     }
 
     public static final Pattern EMAIL_ADDRESS
@@ -153,49 +169,28 @@ public class Regist extends AppCompatActivity {
                     "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
                     ")+"
                 );
-    //Check Number
-    private boolean checkEmail()
-    {
-        final EditText number = (EditText) findViewById(R.id.number);
-        String numberInput = number.getText().toString();
-        int numberInt = Integer.parseInt(numberInput);
-        if ( numberInt != 9)
-        {
-            number.setError("Please enter a valid number");
-        }
-        else
-            {
-                number.setError(null);
-            }   return true;
-    }
-
-    //Check NIF
-    private boolean checkNif()
-    {
-        final EditText nif = (EditText) findViewById(R.id.nif);
-        String nifInput = nif.getText().toString();
-        int nifInt = Integer.parseInt(nifInput);
-        if (nifInt != 9)
-        {
-            nif.setError("Please enter a valid nif");
-        }
-        else
-        {
-            nif.setError(null);
-        }   return true;
-    }
 
     //Metodo INSERT
-    public void insert(String name, String pass, String mail, String number, String nif)
+    public void insert(String nome, String password, String email, String number, String nif, int tipo)
     {
-        String url = prefix_url + "/users/insert";
+        String url = prefix_url + "/teste/users/insert";
         Map<String, String> jsonParams = new HashMap<String, String>();
 
-        jsonParams.put("nome", name);
-        jsonParams.put("password", pass);
-        jsonParams.put("email", mail);
+        String tipoString = String.valueOf(tipo);
+
+        jsonParams.put("nome", nome);
+
+        String passCheck = computeMD5Hash(password);
+        jsonParams.put("password", passCheck);
+
+        String emailCheck = validateEmail(email);
+        jsonParams.put("email", emailCheck);
+
         jsonParams.put("number", number);
+
         jsonParams.put("nif", nif);
+
+        jsonParams.put("tipo", tipoString);
 
         JsonObjectRequest postRequest = new JsonObjectRequest(Request.Method.POST, url,
 
@@ -206,10 +201,17 @@ public class Regist extends AppCompatActivity {
 
                         try {
                             boolean status = response.getBoolean("status");
+                            //Toast.makeText(Regist.this, "" + status, Toast.LENGTH_SHORT).show();
 
                             if (status) {
 
+                                //Bloco de codigo
+                                Toast.makeText(Regist.this, "Inserido com sucesso!", Toast.LENGTH_SHORT).show();
+
                             } else {
+
+                                //Bloco de codigo
+                                Toast.makeText(Regist.this, "Erro na inserção!", Toast.LENGTH_SHORT).show();
 
                             }
                         } catch (JSONException ex) {

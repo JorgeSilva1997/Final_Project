@@ -45,9 +45,11 @@
         android:layout_marginTop="5dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:hint="Mobile Number"/>
+        android:hint="Mobile Number"
+        android:maxLength="9"/>
     <!-- NIF -->
     <EditText
+        android:maxLength="9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/nif"

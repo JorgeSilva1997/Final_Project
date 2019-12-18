@@ -5,8 +5,9 @@
     <string name="action_settings">Settings</string>
 
     <string-array name="items">
-        <item>ADMINISTRADOR</item>
         <item>ÁRBITRO</item>
+        <item>ADMINISTRADOR</item>
+
     </string-array>
 
 </resources>

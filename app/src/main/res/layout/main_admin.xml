@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Main_admin">
+    tools:context=".MAIN.Main_admin">
 
     <!--    WELCOME     -->
 
@@ -126,6 +126,7 @@
             android:id="@+id/SecondSub2Layout">
             <ImageButton
                 android:id="@+id/imgPavilhao"
+                android:onClick="btnPavilhao"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/pavilhao2"
@@ -162,6 +163,7 @@
             android:id="@+id/ThirdSubLayout">
             <ImageButton
                 android:id="@+id/imgProva"
+                android:onClick="btnProva"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/prova2"/>
