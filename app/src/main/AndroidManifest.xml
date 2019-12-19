@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".List_User"
+            android:name=".USER.List_Users"
             android:label="@string/title_activity_list__user"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".LOGIN.Login">
@@ -25,10 +25,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".LOGIN.Login_Admin" />
-        <activity android:name=".Regist" />
+        <activity android:name=".USER.Regist" />
         <activity android:name=".MAIN.Main" />
         <activity android:name=".MAIN.Main_admin" />
-        <activity android:name=".Perfil_User" />
+        <activity android:name=".USER.Perfil_User" />
         <activity android:name=".PAVILHAO.Pavilhao" />
         <activity android:name=".PROVA.Prova" />
         <activity android:name=".ESCALOES.Escalao" />

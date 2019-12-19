@@ -14,8 +14,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.finalproject.ESCALOES.Escalao;
 import com.example.finalproject.PAVILHAO.Pavilhao;
 import com.example.finalproject.PROVA.Prova;
+import com.example.finalproject.USER.List_Users;
+import com.example.finalproject.USER.Perfil_User;
 import com.example.finalproject.R;
-import com.example.finalproject.Regist;
+import com.example.finalproject.USER.Regist;
 
 public class Main_admin extends AppCompatActivity {
 
@@ -34,7 +36,7 @@ public class Main_admin extends AppCompatActivity {
 
     public void btnRegist(View view) {
 
-        Intent intent = new Intent(Main_admin.this, Regist.class);
+        Intent intent = new Intent(Main_admin.this, List_Users.class);
         intent.putExtra("ID", id);
         startActivity(intent);
 

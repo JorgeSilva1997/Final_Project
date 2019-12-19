@@ -1,13 +1,12 @@
-package com.example.finalproject;
+package com.example.finalproject.USER;
 
-public class User {
+public class User_Model {
 
-    //public int id;
-    public String nome, password, email, number, nif/*, tipo*/;
+    public String id, nome, password, email, number, nif/*, tipo*/;
 
-    public User(/*int id,*/ String nome, String password, String email, String number, String nif/*, String tipo*/)
+    public User_Model(String id, String nome, String password, String email, String number, String nif/*, String tipo*/)
     {
-       // this.id = id;
+        this.id = id;
         this.nome = nome;
         this.password = password;
         this.email = email;
@@ -16,14 +15,13 @@ public class User {
         //this.tipo = tipo;
     }
 
-    //public User() {}
 
-    /*public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {this.id = id;}
-*/
+    public void setId(String id) {this.id = id;}
+
     public String getNumber() {
         return number;
     }

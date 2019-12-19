@@ -8,18 +8,18 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.finalproject.R;
-import com.example.finalproject.User;
+import com.example.finalproject.USER.User_Model;
 
 import java.util.ArrayList;
 
-public class CustomArrayAdapter extends ArrayAdapter<User> {
-    public CustomArrayAdapter(Context context, ArrayList<User> contacts) {
+public class CustomArrayAdapter extends ArrayAdapter<User_Model> {
+    public CustomArrayAdapter(Context context, ArrayList<User_Model> contacts) {
         super(context, 0, contacts);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        User c = getItem(position);
+        User_Model c = getItem(position);
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.perfil_user, parent, false);
         }

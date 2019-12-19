@@ -36,7 +36,7 @@ import org.json.JSONObject;
 public class Login extends AppCompatActivity {
 
     String prefix_url = "http://andrefelix.dynip.sapo.pt/projetofinalpm/index.php/api";
-    // Este ID é devido a ser Multi-User
+    // Este ID é devido a ser Multi-User_Model
     int id_int = -1;
     String id_string;
     private EditText name, pass;
@@ -147,7 +147,7 @@ public class Login extends AppCompatActivity {
 
                 HashMap<String, String> headers = new HashMap<String, String>();
                 headers.put("Content-Type", "application/json; charset=utf-8");
-                headers.put("User-agent", System.getProperty("http.agent"));
+                headers.put("User_Model-agent", System.getProperty("http.agent"));
 
                 return headers;
             }

@@ -1,4 +1,4 @@
-package com.example.finalproject;
+package com.example.finalproject.USER;
 
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -18,6 +18,9 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.finalproject.R;
+import com.example.finalproject.VolleySingleton;
+import com.example.finalproject.md5;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -230,7 +233,7 @@ public class Regist extends AppCompatActivity {
 
                 HashMap<String, String> headers = new HashMap<String, String>();
                 headers.put("Content-Type", "application/json; charset=utf-8");
-                headers.put("User-agent", System.getProperty("http.agent"));
+                headers.put("User_Model-agent", System.getProperty("http.agent"));
 
                 return headers;
             }
