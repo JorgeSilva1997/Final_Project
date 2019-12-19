@@ -1,27 +1,20 @@
 package com.example.finalproject.USER;
 
+import android.content.Intent;
 import android.os.Bundle;
-
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.example.finalproject.ARRAYADAPTER.MyArrayAdapterEscalao;
 import com.example.finalproject.ARRAYADAPTER.MyArrayAdapterUser;
-import com.example.finalproject.ESCALOES.Escalao;
-import com.example.finalproject.ESCALOES.Escalao_Model;
 import com.example.finalproject.R;
 import com.example.finalproject.VolleySingleton;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -33,6 +26,7 @@ import java.util.ArrayList;
 
 public class List_Users extends AppCompatActivity {
     String prefix_url = "http://andrefelix.dynip.sapo.pt/projetofinalpm/index.php/api";
+    int id;
     ArrayList<User_Model> arrayUsers = new ArrayList<>();
     ListView lista;
 
@@ -42,7 +36,7 @@ public class List_Users extends AppCompatActivity {
         setContentView(R.layout.activity_list__user);
 
         lista = (ListView) findViewById(R.id.lista);
-
+        id = getIntent().getIntExtra("ID", -1);
 
         /////////////////////////   GET     /////////////////////////
         String url = prefix_url + "/utilizador";
@@ -60,7 +54,7 @@ public class List_Users extends AppCompatActivity {
                                 for (int i = 0; i < array.length(); i++) {
 
                                     JSONObject object1 = array.getJSONObject(i);
-                                    arrayUsers.add(new User_Model(object1.getInt("id"), object1.getString("nome"),
+                                    arrayUsers.add(new User_Model(object1.getString("id"), object1.getString("nome"),
                                             object1.getString("password"), object1.getString("email"),
                                             object1.getString("number"), object1.getString("nif")));
                                     //id.setText(object1.getString("id"));
@@ -105,8 +99,9 @@ public class List_Users extends AppCompatActivity {
         switch (item.getItemId())
         {
             case R.id.Add:
-
-                // BLOCO DE CODIGO
+                Intent intent = new Intent(List_Users.this, Regist.class);
+                intent.putExtra("ID", id);
+                startActivity(intent);
 
             default:
                 return super.onOptionsItemSelected(item);

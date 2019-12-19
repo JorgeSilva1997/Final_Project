@@ -14,9 +14,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".USER.List_Users"
-            android:label="@string/title_activity_list__user"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:name=".USER.List_Users"/>
         <activity android:name=".LOGIN.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
