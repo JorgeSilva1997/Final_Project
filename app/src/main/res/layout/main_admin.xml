@@ -106,6 +106,7 @@
             android:id="@+id/SecondSubLayout">
             <ImageButton
                 android:id="@+id/imgEscalao"
+                android:onClick="btnEscaloes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/escalao2"/>

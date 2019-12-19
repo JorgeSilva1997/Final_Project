@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/AddProva"
+        android:id="@+id/Add"
         app:showAsAction="ifRoom"
         android:title=""
         android:icon="@drawable/ic_add">

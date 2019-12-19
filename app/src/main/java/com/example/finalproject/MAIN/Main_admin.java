@@ -11,6 +11,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.finalproject.ESCALOES.Escalao;
 import com.example.finalproject.PAVILHAO.Pavilhao;
 import com.example.finalproject.PROVA.Prova;
 import com.example.finalproject.R;
@@ -48,6 +49,12 @@ public class Main_admin extends AppCompatActivity {
     public void btnProva(View view)  {
 
         Intent intent = new Intent(Main_admin.this, Prova.class);
+        startActivity(intent);
+    }
+
+    public void btnEscaloes(View view)  {
+
+        Intent intent = new Intent(Main_admin.this, Escalao.class);
         startActivity(intent);
     }
 
