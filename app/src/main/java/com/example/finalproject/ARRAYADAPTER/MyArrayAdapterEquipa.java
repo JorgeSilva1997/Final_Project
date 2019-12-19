@@ -7,14 +7,14 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.example.finalproject.ESCALAO.Escalao_Model;
+import com.example.finalproject.EQUIPA.Equipa_Model;
 import com.example.finalproject.R;
 
 import java.util.ArrayList;
 
-public class MyArrayAdapterEscalao extends ArrayAdapter<Escalao_Model> {
+public class MyArrayAdapterEquipa extends ArrayAdapter<Equipa_Model> {
 
-    public MyArrayAdapterEscalao(Context context, ArrayList<Escalao_Model> contacts)
+    public MyArrayAdapterEquipa(Context context, ArrayList<Equipa_Model> contacts)
     {
         super(context, 0, contacts);
     }
@@ -22,7 +22,7 @@ public class MyArrayAdapterEscalao extends ArrayAdapter<Escalao_Model> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent)
     {
-        Escalao_Model c = getItem(position);
+        Equipa_Model c = getItem(position);
         if(convertView == null)
         {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.linha_prova, parent, false);

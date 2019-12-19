@@ -29,7 +29,8 @@
         <activity android:name=".USER.Perfil_User" />
         <activity android:name=".PAVILHAO.Pavilhao" />
         <activity android:name=".PROVA.Prova" />
-        <activity android:name=".ESCALOES.Escalao" />
+        <activity android:name=".ESCALAO.Escalao" />
+        <activity android:name=".EQUIPA.Equipa" />
     </application>
 
 </manifest>

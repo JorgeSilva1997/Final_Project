@@ -4,14 +4,14 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ESCALAO.Escalao">
+    tools:context=".EQUIPA.Equipa">
 
-    <!--    ESCALÕES     -->
+    <!--    EQUIPAS     -->
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/EscalaoLayout">
+        android:id="@+id/EquipaLayout">
 
         <TextView
             android:id="@+id/textView1"
@@ -20,7 +20,7 @@
             android:gravity="center_horizontal"
             android:layout_marginTop="50dp"
             android:textSize="30sp"
-            android:text="Escalões existentes"
+            android:text="Equipas existentes"
             android:textColor="#000000"
             android:shadowColor="#5F000000"
             android:shadowDx="10"
@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/list"
-        android:layout_below="@id/EscalaoLayout"
+        android:layout_below="@id/EquipaLayout"
         android:layout_marginTop="25dp">
 
         <ListView

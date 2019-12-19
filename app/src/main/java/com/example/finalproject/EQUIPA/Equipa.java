@@ -1,4 +1,4 @@
-package com.example.finalproject.ESCALOES;
+package com.example.finalproject.EQUIPA;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,7 +13,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.example.finalproject.ARRAYADAPTER.MyArrayAdapterEscalao;
+import com.example.finalproject.ARRAYADAPTER.MyArrayAdapterEquipa;
 import com.example.finalproject.R;
 import com.example.finalproject.VolleySingleton;
 
@@ -23,23 +23,23 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class Escalao extends AppCompatActivity {
+public class Equipa extends AppCompatActivity {
 
 
     String prefix_url = "http://andrefelix.dynip.sapo.pt/projetofinalpm/index.php/api";
-    ArrayList<Escalao_Model> arrayEscalao = new ArrayList<>();
+    ArrayList<Equipa_Model> arrayEquipa = new ArrayList<>();
     ListView lista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.escalao);
+        setContentView(R.layout.equipa);
 
         lista = (ListView) findViewById(R.id.lista);
 
 
         /////////////////////////   GET     /////////////////////////
-        String url = prefix_url + "/escalao";
+        String url = prefix_url + "/equipass";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 
@@ -54,35 +54,35 @@ public class Escalao extends AppCompatActivity {
                                 for (int i = 0; i < array.length(); i++) {
 
                                     JSONObject object1 = array.getJSONObject(i);
-                                    arrayEscalao.add(new Escalao_Model(object1.getString("id"), object1.getString("nome")));
+                                    arrayEquipa.add(new Equipa_Model(object1.getString("id"), object1.getString("nome")));
                                     //id.setText(object1.getString("id"));
                                     //nome.setText(object1.getString("nome"));
                                     //password.setText(object1.getString("password"));
                                     //email.setText(object1.getString("email"));
                                     //numero.setText(String.valueOf(object1.getInt("number")));
                                     //nif.setText(String.valueOf(object1.getInt("nif")));
-                                    MyArrayAdapterEscalao itemsAdapter = new MyArrayAdapterEscalao(Escalao.this, arrayEscalao);
+                                    MyArrayAdapterEquipa itemsAdapter = new MyArrayAdapterEquipa(Equipa.this, arrayEquipa);
                                     ((ListView) findViewById(R.id.lista)).setAdapter(itemsAdapter);
                                 }
 
                             } else {
-                                Toast.makeText(Escalao.this, "" + status, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Equipa.this, "" + status, Toast.LENGTH_SHORT).show();
                             }
                         } catch (JSONException ex) {
-                            Toast.makeText(Escalao.this, "Erro 1!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Equipa.this, "Erro 1!", Toast.LENGTH_SHORT).show();
 
                         }
                     }
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(Escalao.this, "Erro 2!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Equipa.this, "Erro 2!", Toast.LENGTH_SHORT).show();
                     }
                 });
         VolleySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
     }
 
-    // Bloco de código para o adicionar novo escalao
+    // Bloco de código para o adicionar nova Equipa
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu)

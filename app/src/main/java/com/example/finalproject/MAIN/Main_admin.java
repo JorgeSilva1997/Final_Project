@@ -11,13 +11,12 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.finalproject.ESCALOES.Escalao;
+import com.example.finalproject.EQUIPA.Equipa;
+import com.example.finalproject.ESCALAO.Escalao;
 import com.example.finalproject.PAVILHAO.Pavilhao;
 import com.example.finalproject.PROVA.Prova;
 import com.example.finalproject.USER.List_Users;
-import com.example.finalproject.USER.Perfil_User;
 import com.example.finalproject.R;
-import com.example.finalproject.USER.Regist;
 
 public class Main_admin extends AppCompatActivity {
 
@@ -34,32 +33,31 @@ public class Main_admin extends AppCompatActivity {
 
     }
 
-    public void btnRegist(View view) {
-
+    public void btnUsers(View view) {
         Intent intent = new Intent(Main_admin.this, List_Users.class);
         intent.putExtra("ID", id);
         startActivity(intent);
-
     }
 
     public void btnPavilhao(View view)  {
-
         Intent intent = new Intent(Main_admin.this, Pavilhao.class);
         startActivity(intent);
     }
 
     public void btnProva(View view)  {
-
         Intent intent = new Intent(Main_admin.this, Prova.class);
         startActivity(intent);
     }
 
     public void btnEscaloes(View view)  {
-
         Intent intent = new Intent(Main_admin.this, Escalao.class);
         startActivity(intent);
     }
 
+    public void btnEquipa(View view) {
+        Intent intent = new Intent(Main_admin.this, Equipa.class);
+        startActivity(intent);
+    }
 
 
 

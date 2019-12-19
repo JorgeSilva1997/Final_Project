@@ -71,6 +71,7 @@
             android:id="@+id/FirstSub2Layout">
             <ImageButton
                 android:id="@+id/imgEquipa"
+                android:onClick="btnEquipa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/team2"
@@ -185,7 +186,7 @@
             android:id="@+id/ThirdSub2Layout">
             <ImageButton
                 android:id="@+id/imgProfile"
-                android:onClick="btnRegist"
+                android:onClick="btnUsers"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/profile2"

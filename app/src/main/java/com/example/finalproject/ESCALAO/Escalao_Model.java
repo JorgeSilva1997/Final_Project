@@ -1,4 +1,4 @@
-package com.example.finalproject.ESCALOES;
+package com.example.finalproject.ESCALAO;
 
 public class Escalao_Model {
     public String ID;
