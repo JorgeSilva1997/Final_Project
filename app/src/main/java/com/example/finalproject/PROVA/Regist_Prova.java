@@ -47,7 +47,7 @@ public class Regist_Prova extends AppCompatActivity {
 
         //validating inputs
                 if (TextUtils.isEmpty(nome)) {
-                    name.setError("Please enter the name of the team");
+                    name.setError("Please enter the name of the pavilion");
                     name.requestFocus();
                     return;
                 }
@@ -60,7 +60,7 @@ public class Regist_Prova extends AppCompatActivity {
     //Metodo INSERT
     public void insert(String nome)
     {
-        String url = prefix_url + "/escalaoo/insert";
+        String url = prefix_url + "/prova/insert";
         Map<String, String> jsonParams = new HashMap<String, String>();
 
         jsonParams.put("nome", nome);

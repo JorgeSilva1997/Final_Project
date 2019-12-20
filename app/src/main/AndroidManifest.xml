@@ -23,13 +23,22 @@
             </intent-filter>
         </activity>
         <activity android:name=".LOGIN.Login_Admin" />
-        <activity android:name=".USER.Regist" />
+
         <activity android:name=".MAIN.Main" />
         <activity android:name=".MAIN.Main_admin" />
+
         <activity android:name=".USER.Perfil_User" />
+        <activity android:name=".USER.Regist" />
+
         <activity android:name=".PAVILHAO.Pavilhao" />
+        <activity android:name=".PAVILHAO.Regist_Pavilhao" />
+
         <activity android:name=".PROVA.Prova" />
+        <activity android:name=".PROVA.Regist_Prova" />
+
         <activity android:name=".ESCALAO.Escalao" />
+        <activity android:name=".ESCALAO.Regist_Escalao" />
+
         <activity android:name=".EQUIPA.Equipa" />
         <activity android:name=".EQUIPA.Regist_Equipa" />
     </application>

@@ -103,7 +103,7 @@ public class Pavilhao extends AppCompatActivity {
         {
             case R.id.Add:
 
-                Intent intent = new Intent(Pavilhao.this, Pavilhao.class);
+                Intent intent = new Intent(Pavilhao.this, Regist_Pavilhao.class);
                 startActivity(intent);
                 filllista();
             default:
