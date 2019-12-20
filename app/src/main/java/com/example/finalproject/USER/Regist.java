@@ -210,6 +210,7 @@ public class Regist extends AppCompatActivity {
 
                                 //Bloco de codigo
                                 Toast.makeText(Regist.this, "Inserido com sucesso!", Toast.LENGTH_SHORT).show();
+                                finish();
 
                             } else {
 

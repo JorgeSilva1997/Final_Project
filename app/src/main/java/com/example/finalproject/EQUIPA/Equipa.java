@@ -1,5 +1,6 @@
 package com.example.finalproject.EQUIPA;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -34,11 +35,15 @@ public class Equipa extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.equipa);
-
         lista = (ListView) findViewById(R.id.lista);
+        filllista();
 
 
-        /////////////////////////   GET     /////////////////////////
+    }
+    private void filllista(){
+
+        arrayEquipa.removeAll(arrayEquipa);
+   /////////////////////////   GET     /////////////////////////
         String url = prefix_url + "/equipass";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
@@ -98,8 +103,9 @@ public class Equipa extends AppCompatActivity {
         {
             case R.id.Add:
 
-                // BLOCO DE CODIGO
-
+                Intent intent = new Intent(Equipa.this, Regist_Equipa.class);
+                startActivity(intent);
+                filllista();
             default:
                 return super.onOptionsItemSelected(item);
         }
