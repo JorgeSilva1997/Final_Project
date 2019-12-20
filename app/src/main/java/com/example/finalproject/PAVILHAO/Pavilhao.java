@@ -1,6 +1,10 @@
 package com.example.finalproject.PAVILHAO;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -35,6 +39,10 @@ public class Pavilhao extends AppCompatActivity {
         lista = (ListView) findViewById(R.id.lista);
         //id = getIntent().getIntExtra("ID", -1);
         //tipo = getIntent().getIntExtra("TIPO", -1);
+        filllista();
+    }
+    private void filllista(){
+        arrayPavilhao.removeAll(arrayPavilhao);
 
         /////////////////////////   GET     /////////////////////////
         String url = prefix_url + "/pavilhao";
@@ -78,7 +86,28 @@ public class Pavilhao extends AppCompatActivity {
                     }
                 });
         VolleySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
+    }
 
+    // Bloco de código para o adicionar nova Equipa
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_prova, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch (item.getItemId())
+        {
+            case R.id.Add:
 
+                Intent intent = new Intent(Pavilhao.this, Pavilhao.class);
+                startActivity(intent);
+                filllista();
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

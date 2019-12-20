@@ -1,5 +1,6 @@
 package com.example.finalproject.PROVA;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
@@ -34,10 +35,11 @@ public class Prova extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.prova);
-
         lista = (ListView) findViewById(R.id.lista);
-
-
+        filllista();
+    }
+     private void filllista(){
+        arrayProva.removeAll(arrayProva);
         /////////////////////////   GET     /////////////////////////
         String url = prefix_url + "/prova";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
@@ -97,9 +99,9 @@ public class Prova extends AppCompatActivity {
         switch (item.getItemId())
         {
             case R.id.Add:
-
-                // BLOCO DE CODIGO
-                
+                Intent intent = new Intent(Prova.this, Regist_Prova.class);
+                startActivity(intent);
+                filllista();
             default:
                 return super.onOptionsItemSelected(item);
         }

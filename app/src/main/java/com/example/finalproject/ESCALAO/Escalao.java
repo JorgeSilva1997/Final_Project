@@ -1,5 +1,6 @@
 package com.example.finalproject.ESCALAO;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -34,10 +35,11 @@ public class Escalao extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.escalao);
-
         lista = (ListView) findViewById(R.id.lista);
-
-
+        filllista();
+    }
+    private void filllista(){
+        arrayEscalao.removeAll(arrayEscalao);
         /////////////////////////   GET     /////////////////////////
         String url = prefix_url + "/escalao";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
@@ -98,7 +100,9 @@ public class Escalao extends AppCompatActivity {
         {
             case R.id.Add:
 
-                // BLOCO DE CODIGO
+                Intent intent = new Intent(Escalao.this, Regist_Escalao.class);
+                startActivity(intent);
+                filllista();
 
             default:
                 return super.onOptionsItemSelected(item);

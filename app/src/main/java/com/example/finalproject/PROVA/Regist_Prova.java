@@ -1,4 +1,4 @@
-package com.example.finalproject.PAVILHAO;
+package com.example.finalproject.PROVA;
 
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -25,55 +25,45 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class Regist_Pavilhao extends AppCompatActivity {
+public class Regist_Prova extends AppCompatActivity {
 
     String prefix_url = "http://andrefelix.dynip.sapo.pt/projetofinalpm/index.php/api";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.regist_pavilhao);
+        setContentView(R.layout.regist_equipa);
     }
 
     public void btnRegist(View view)
     {
 
         EditText name = (EditText) findViewById(R.id.name);
-        EditText street = (EditText) findViewById(R.id.rua);
-        EditText place = (EditText) findViewById(R.id.localidade);
-        EditText distance = (EditText) findViewById(R.id.distancia);
 
         String nome = name.getText().toString();
-        String rua = street.getText().toString();
-        String localidade = place.getText().toString();
-        String distancia = distance.getText().toString();
-
 
         Button regist = (Button) findViewById(R.id.btnregist);
 
 
         //validating inputs
                 if (TextUtils.isEmpty(nome)) {
-                    name.setError("Please enter the name of the pavilion");
+                    name.setError("Please enter the name of the team");
                     name.requestFocus();
                     return;
                 }
                 else {
 
-                    insert(nome, rua, localidade, distancia);
+                    insert(nome);
                 }
     }
 
     //Metodo INSERT
-    public void insert(String nome, String rua, String localidade, String distancia)
+    public void insert(String nome)
     {
-        String url = prefix_url + "/pavilhaoinserir/insert";
+        String url = prefix_url + "/escalaoo/insert";
         Map<String, String> jsonParams = new HashMap<String, String>();
 
         jsonParams.put("nome", nome);
-        jsonParams.put("rua", rua);
-        jsonParams.put("localidade", localidade);
-        jsonParams.put("distancia", distancia);
         JsonObjectRequest postRequest = new JsonObjectRequest(Request.Method.POST, url,
                 new JSONObject(jsonParams),
                 new Response.Listener<JSONObject>() {
@@ -85,11 +75,11 @@ public class Regist_Pavilhao extends AppCompatActivity {
                             boolean status = response.getBoolean("status");
                             if (status) {
                                 //Bloco de codigo
-                                Toast.makeText(Regist_Pavilhao.this, "Inserido com sucesso!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Regist_Prova.this, "Inserido com sucesso!", Toast.LENGTH_SHORT).show();
                                 finish();
                             } else {
                                 //Bloco de codigo
-                                Toast.makeText(Regist_Pavilhao.this, "Erro na inserção!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Regist_Prova.this, "Erro na inserção!", Toast.LENGTH_SHORT).show();
                                 Log.d("regist1", "" + status);
                             }
                         } catch (JSONException ex) {
@@ -100,7 +90,7 @@ public class Regist_Pavilhao extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(Regist_Pavilhao.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Regist_Prova.this, error.getMessage(), Toast.LENGTH_SHORT).show();
                         Log.d("regist3", "" + error.getMessage());
                     }
                 }) {
