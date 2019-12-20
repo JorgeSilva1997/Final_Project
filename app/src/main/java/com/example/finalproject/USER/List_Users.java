@@ -42,7 +42,6 @@ public class List_Users extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list__user);
-
         lista = (ListView) findViewById(R.id.lista);
         registerForContextMenu(lista);
         id = getIntent().getIntExtra("ID", -1);
@@ -64,7 +63,7 @@ public class List_Users extends AppCompatActivity {
                                     JSONObject object1 = array.getJSONObject(i);
                                     arrayUsers.add(new User_Model(object1.getString("id"), object1.getString("nome"),
                                             object1.getString("password"), object1.getString("email"),
-                                            object1.getString("number"), object1.getString("nif")));
+                                            object1.getString("number"), object1.getString("nif"), object1.getString("tipo")));
                                     //id.setText(object1.getString("id"));
                                     //nome.setText(object1.getString("nome"));
                                     //password.setText(object1.getString("password"));
@@ -137,6 +136,7 @@ public class List_Users extends AppCompatActivity {
                 intent.putExtra("email", arrayUsers.get(itemPosition).email);
                 intent.putExtra("number", arrayUsers.get(itemPosition).number);
                 intent.putExtra("nif", arrayUsers.get(itemPosition).nif);
+                intent.putExtra("tipo", arrayUsers.get(itemPosition).tipo);
                 startActivity(intent);
                 return true;
             case R.id.remover:

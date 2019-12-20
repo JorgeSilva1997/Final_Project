@@ -26,7 +26,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class Prova extends AppCompatActivity {
-
     String prefix_url = "http://andrefelix.dynip.sapo.pt/projetofinalpm/index.php/api";
     ArrayList<Prova_Model> arrayProva = new ArrayList<>();
     ListView lista;

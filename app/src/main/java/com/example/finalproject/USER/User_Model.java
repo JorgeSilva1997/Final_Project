@@ -2,9 +2,9 @@ package com.example.finalproject.USER;
 
 public class User_Model {
 
-    public String id, nome, password, email, number, nif/*, tipo*/;
+    public String id, nome, password, email, number, nif, tipo;
 
-    public User_Model(String id, String nome, String password, String email, String number, String nif/*, String tipo*/)
+    public User_Model(String id, String nome, String password, String email, String number, String nif, String tipo)
     {
         this.id = id;
         this.nome = nome;
@@ -12,7 +12,7 @@ public class User_Model {
         this.email = email;
         this.number = number;
         this.nif = nif;
-        //this.tipo = tipo;
+        this.tipo = tipo;
     }
 
 
@@ -34,12 +34,10 @@ public class User_Model {
 
     public void setNif(String nif) {this.nif = nif;}
 
-  /*  public String getTipo() {
-        return tipo;
-    }
+    public String getTipo() { return tipo; }
 
     public void setTipo(String tipo) {this.tipo = tipo;}
-*/
+
     public String getNome() {
         return nome;
     }

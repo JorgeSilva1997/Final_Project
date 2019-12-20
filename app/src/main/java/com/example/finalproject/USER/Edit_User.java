@@ -46,12 +46,14 @@ public class Edit_User extends AppCompatActivity {
         EditText mail = (EditText) findViewById(R.id.email);
         EditText numero = (EditText) findViewById(R.id.number);
         EditText NIF = (EditText) findViewById(R.id.nif);
+
         id = getIntent().getStringExtra("ID");
         name.setText(getIntent().getStringExtra("nome"));
         pass.setText(getIntent().getStringExtra("password"));
         mail.setText(getIntent().getStringExtra("email"));
         numero.setText(getIntent().getStringExtra("number"));
         NIF.setText(getIntent().getStringExtra("nif"));
+        tipo = getIntent().getIntExtra("tipo", 0);
         Spinner spinTipo = findViewById(R.id.spinnerTipo);
         spinTipo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -60,7 +62,6 @@ public class Edit_User extends AppCompatActivity {
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
     }
@@ -80,7 +81,6 @@ public class Edit_User extends AppCompatActivity {
         String number = numero.getText().toString();
         String nif = NIF.getText().toString();
         Button regist = (Button) findViewById(R.id.btnregist);
-
 
         //validating inputs
                 if (TextUtils.isEmpty(nome)) {
@@ -110,7 +110,6 @@ public class Edit_User extends AppCompatActivity {
                     return;
                 }
                 else {
-
                     insert(nome, password, email, number, nif, tipo);
                 }
     }
