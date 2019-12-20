@@ -31,17 +31,27 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 
-public class Regist extends AppCompatActivity {
+public class Edit_User extends AppCompatActivity {
     String prefix_url = "http://andrefelix.dynip.sapo.pt/projetofinalpm/index.php/api";
     int tipo;
-
+    String id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.regist);
 
         tipo = 0;
-
+        EditText name = (EditText) findViewById(R.id.name);
+        EditText pass = (EditText) findViewById(R.id.password);
+        EditText mail = (EditText) findViewById(R.id.email);
+        EditText numero = (EditText) findViewById(R.id.number);
+        EditText NIF = (EditText) findViewById(R.id.nif);
+        id = getIntent().getStringExtra("ID");
+        name.setText(getIntent().getStringExtra("nome"));
+        pass.setText(getIntent().getStringExtra("password"));
+        mail.setText(getIntent().getStringExtra("email"));
+        numero.setText(getIntent().getStringExtra("number"));
+        NIF.setText(getIntent().getStringExtra("nif"));
         Spinner spinTipo = findViewById(R.id.spinnerTipo);
         spinTipo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -57,7 +67,6 @@ public class Regist extends AppCompatActivity {
 
     public void btnRegist(View view)
     {
-
         EditText name = (EditText) findViewById(R.id.name);
         EditText pass = (EditText) findViewById(R.id.password);
         EditText mail = (EditText) findViewById(R.id.email);
@@ -175,25 +184,18 @@ public class Regist extends AppCompatActivity {
     //Metodo INSERT
     public void insert(String nome, String password, String email, String number, String nif, int tipo)
     {
-        String url = prefix_url + "/teste/users/insert";
+        String url = prefix_url + "/users/update/" + id;
         Map<String, String> jsonParams = new HashMap<String, String>();
 
         String tipoString = String.valueOf(tipo);
 
         jsonParams.put("nome", nome);
-
         String passCheck = computeMD5Hash(password);
         jsonParams.put("password", passCheck);
-
-        String emailCheck = validateEmail(email);
-        jsonParams.put("email", emailCheck);
-
+        jsonParams.put("email", email);
         jsonParams.put("number", number);
-
         jsonParams.put("nif", nif);
-
         jsonParams.put("tipo", tipoString);
-
         JsonObjectRequest postRequest = new JsonObjectRequest(Request.Method.POST, url,
 
                 new JSONObject(jsonParams),
@@ -208,13 +210,13 @@ public class Regist extends AppCompatActivity {
                             if (status) {
 
                                 //Bloco de codigo
-                                Toast.makeText(Regist.this, "Inserido com sucesso!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Edit_User.this, "Inserido com sucesso!", Toast.LENGTH_SHORT).show();
                                 finish();
 
                             } else {
 
                                 //Bloco de codigo
-                                Toast.makeText(Regist.this, "Erro na inserção!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Edit_User.this, "Erro na inserção!", Toast.LENGTH_SHORT).show();
 
                             }
                         } catch (JSONException ex) {
@@ -225,7 +227,7 @@ public class Regist extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(Regist.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Edit_User.this, error.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }) {
             @Override

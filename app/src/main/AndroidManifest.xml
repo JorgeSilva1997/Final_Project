@@ -29,6 +29,7 @@
 
         <activity android:name=".USER.Perfil_User" />
         <activity android:name=".USER.Regist" />
+        <activity android:name=".USER.Edit_User" />
 
         <activity android:name=".PAVILHAO.Pavilhao" />
         <activity android:name=".PAVILHAO.Regist_Pavilhao" />
