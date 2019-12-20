@@ -3,82 +3,108 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Main"
-    android:background="#000000">
+    tools:context=".MAIN.Main"
+    android:background="#FFFFFF">
 
+    <!--    WELCOME     -->
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/WelcomeLayout">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="75dp"
+            android:textSize="30sp"
+            android:text="User Portal"
+            android:textColor="#000000"
+            android:shadowColor="#5F000000"
+            android:shadowDx="10"
+            android:shadowDy="10"
+            android:shadowRadius="0.1" />
+
+    </RelativeLayout>
+
+    <!--    FIM WELCOME -->
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="75dp"
-        android:id="@+id/firsLayout">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/cards"/>
-
-    </RelativeLayout>
-
+        android:layout_centerVertical="true"
+        android:id="@+id/MasterLayout">
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/firsLayout"
-        android:layout_marginTop="75dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginRight="100dp"
-        android:layout_centerVertical="true">
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/convocatoria"
-        android:background="@drawable/buttonshape"
-
-        android:shadowColor="#000000"
-        android:textSize="20dp"
-        android:fontFamily="serif"
-        android:hint="Convocatória"
-        android:textColorHint="#FFFFFF"/>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/jogo"
-            android:layout_below="@id/convocatoria"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/buttonshape"
-
-            android:shadowColor="#000000"
-            android:textSize="20dp"
-            android:fontFamily="serif"
-            android:hint="Jogos"
-            android:textColorHint="#FFFFFF"/>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/result"
-            android:layout_below="@id/jogo"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/buttonshape"
-
-            android:shadowColor="#000000"
-            android:textSize="20dp"
-            android:fontFamily="serif"
-            android:hint="Resultados"
-            android:textColorHint="#FFFFFF"/>
-
-        <Button
+        android:layout_centerVertical="true"
+        android:id="@+id/FirstLayout">
+        <ImageButton
+            android:id="@+id/imgConvocatoria"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Login ADMIN"
-            android:onClick="btnAdmin"
-            android:id="@+id/btnAdmin"
-            android:layout_below="@id/result"/>
+            android:src="@mipmap/convocatoria2"
+            android:layout_centerHorizontal="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtConvocatoria"
+            android:layout_below="@id/imgConvocatoria"
+            android:hint="Convocatorias"/>
+    </RelativeLayout>
 
 
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/FirstLayout"
+            android:id="@+id/secondLayout"
+            android:layout_marginLeft="75dp">
+            <ImageButton
+                android:id="@+id/imgMeusJogos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/meus_jogos2"
+                android:layout_centerHorizontal="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtMeusJogos"
+                android:layout_below="@id/imgMeusJogos"
+                android:hint="Os meus Jogos"/>
+
+    </RelativeLayout>
 </RelativeLayout>
+    <!-- -->
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/MasterLayout">
+        <ImageButton
+            android:id="@+id/imgPerfil"
+            android:onClick="btnPerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/profile2"
+            android:layout_centerHorizontal="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtPerfil"
+            android:layout_below="@id/imgPerfil"
+            android:hint="Meu perfil"/>
+
+    </RelativeLayout>
+
+
+
 </RelativeLayout>

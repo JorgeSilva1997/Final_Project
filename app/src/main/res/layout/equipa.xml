@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EQUIPA.Equipa">
+
+    <!--    EQUIPAS     -->
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/EquipaLayout">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="50dp"
+            android:textSize="30sp"
+            android:text="Equipas existentes"
+            android:textColor="#000000"
+            android:shadowColor="#5F000000"
+            android:shadowDx="10"
+            android:shadowDy="10"
+            android:shadowRadius="0.1" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/list"
+        android:layout_below="@id/EquipaLayout"
+        android:layout_marginTop="25dp">
+
+        <ListView
+            android:id="@+id/lista"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:dividerHeight="10dip" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

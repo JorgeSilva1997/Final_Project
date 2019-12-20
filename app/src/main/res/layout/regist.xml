@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:background="#FFFFFF">
+
+    <!-- NAME -->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/name"
+        android:inputType="text"
+        android:layout_marginTop="75dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:hint="Your Full Name"/>
+    <!-- PASSWORD -->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/password"
+        android:layout_below="@+id/name"
+        android:inputType="textPassword"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:hint="Password"/>
+    <!-- MAIL -->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/email"
+        android:layout_below="@+id/password"
+        android:inputType="textEmailAddress"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:hint="Email Address"/>
+    <!-- NUMBER -->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/number"
+        android:layout_below="@+id/email"
+        android:inputType="number"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:hint="Mobile Number"
+        android:maxLength="9"/>
+    <!-- NIF -->
+    <EditText
+        android:maxLength="9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/nif"
+        android:layout_below="@+id/number"
+        android:inputType="number"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:hint="NIF"/>
+    <!-- TIPO -->
+    <Spinner
+        android:id="@+id/spinnerTipo"
+        android:entries="@array/items"
+        android:verticalScrollbarPosition="left"
+        android:scrollbarThumbVertical="@drawable/scrollbar_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nif"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="15dp"/>
+
+    <!-- BOTÃO -->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnregist"
+        android:onClick="btnRegist"
+        android:layout_below="@+id/spinnerTipo"
+        android:hint="Regist"
+        android:inputType="text"
+        android:textSize="16dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"/>
+
+
+</RelativeLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:background="#FFFFFF">
+
+    <!-- NAME -->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/name"
+        android:inputType="text"
+        android:layout_marginTop="75dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:hint="Name"/>
+
+    <!-- BOTÃO -->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnregist"
+        android:onClick="btnRegist"
+        android:layout_below="@+id/name"
+        android:hint="Regist"
+        android:inputType="text"
+        android:textSize="16dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"/>
+
+
+</RelativeLayout>
