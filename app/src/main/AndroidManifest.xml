@@ -36,6 +36,8 @@
 
         <activity android:name=".PROVA.Prova" />
         <activity android:name=".PROVA.Regist_Prova" />
+        <activity android:name=".PROVA.Edit_Prova" />
+
 
         <activity android:name=".ESCALAO.Escalao" />
         <activity android:name=".ESCALAO.Regist_Escalao" />

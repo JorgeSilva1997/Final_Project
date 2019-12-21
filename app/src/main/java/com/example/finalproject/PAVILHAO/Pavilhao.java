@@ -1,10 +1,17 @@
 package com.example.finalproject.PAVILHAO;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -70,13 +77,11 @@ public class Pavilhao extends AppCompatActivity {
                                     MyArrayAdapter itemsAdapter = new MyArrayAdapter(Pavilhao.this, arrayPavilhao);
                                     ((ListView) findViewById(R.id.lista)).setAdapter(itemsAdapter);
                                 }
-
                             } else {
                                 Toast.makeText(Pavilhao.this, "" + status, Toast.LENGTH_SHORT).show();
                             }
                         } catch (JSONException ex) {
                             Toast.makeText(Pavilhao.this, "Erro 1!", Toast.LENGTH_SHORT).show();
-
                         }
                     }
                 }, new Response.ErrorListener() {
@@ -88,7 +93,7 @@ public class Pavilhao extends AppCompatActivity {
         VolleySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
     }
 
-    // Bloco de código para o adicionar nova Equipa
+    // Options MENU BAR
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
@@ -102,12 +107,101 @@ public class Pavilhao extends AppCompatActivity {
         switch (item.getItemId())
         {
             case R.id.Add:
-
                 Intent intent = new Intent(Pavilhao.this, Regist_Pavilhao.class);
                 startActivity(intent);
                 filllista();
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+    // Options MENU BAR
+
+    //CONTEXT MENU//
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_contextual, menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        final AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        Context mContext = this;
+        switch (item.getItemId()) {
+            case R.id.editar:
+                Intent intent = new Intent(Pavilhao.this, Edit_Pavilhao.class);
+                int itemPosition = info.position;
+                String id = arrayPavilhao.get(itemPosition).ID;
+                intent.putExtra("ID", id);
+                intent.putExtra("nome", arrayPavilhao.get(itemPosition).NOME);
+                intent.putExtra("rua", arrayPavilhao.get(itemPosition).RUA);
+                intent.putExtra("localidade", arrayPavilhao.get(itemPosition).LOCALIDADE);
+                intent.putExtra("distancia", arrayPavilhao.get(itemPosition).DISTANCIA);
+                startActivity(intent);
+                return true;
+            case R.id.remover:
+                AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+                builder.setCancelable(true);
+                builder.setMessage("Are you sure?");
+                builder.setPositiveButton("YES",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                /*int itemPosition = info.position;
+                                c.moveToPosition(itemPosition);
+                                int id_contacto = c.getInt(c.getColumnIndex(Contrato.Contacto._ID));
+                                deleteFromBD(id_contacto);*/
+                                int itemPosition = info.position;
+                                String idremove = arrayPavilhao.get(itemPosition).ID;
+                                deleteFromBD(idremove);
+                                filllista();
+                            }
+                        });
+                builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
+    }
+    //CONTEXT MENU
+
+
+    private void deleteFromBD(String id){
+        String url = prefix_url + "pavilhao/delete" + id ;
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            boolean resultado = response.getBoolean("status");
+                            if (resultado) {
+
+                            } else {
+                                //password.setText(null);
+                                Toast.makeText(Pavilhao.this, "Eliminar falhou", Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException ex) {
+                            Log.d("Erro de ", "" + ex);
+                        }
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(Pavilhao.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+
+        // Access the RequestQueue through your singleton class.
+        VolleySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
     }
 }

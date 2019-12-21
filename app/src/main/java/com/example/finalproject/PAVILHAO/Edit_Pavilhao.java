@@ -1,14 +1,11 @@
-package com.example.finalproject.PROVA;
+package com.example.finalproject.PAVILHAO;
 
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import android.util.Patterns;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,54 +17,67 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.finalproject.R;
 import com.example.finalproject.VolleySingleton;
-import com.example.finalproject.md5;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.regex.Pattern;
 
 
-public class Edit_Prova extends AppCompatActivity {
+public class Edit_Pavilhao extends AppCompatActivity {
     String prefix_url = "http://andrefelix.dynip.sapo.pt/projetofinalpm/index.php/api";
     String id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.regist_equipa);
+        setContentView(R.layout.regist_pavilhao);
         EditText name = (EditText) findViewById(R.id.name);
+        EditText rua = (EditText) findViewById(R.id.rua);
+        EditText localidade = (EditText) findViewById(R.id.localidade);
+        EditText distancia = (EditText) findViewById(R.id.distancia);
 
         id = getIntent().getStringExtra("ID");
         name.setText(getIntent().getStringExtra("nome"));
+        rua.setText(getIntent().getStringExtra("rua"));
+        localidade.setText(getIntent().getStringExtra("localidade"));
+        distancia.setText(getIntent().getStringExtra("distancia"));
     }
 
     public void btnRegist(View view)
     {
         EditText name = (EditText) findViewById(R.id.name);
+        EditText road = (EditText) findViewById(R.id.rua);
+        EditText place = (EditText) findViewById(R.id.localidade);
+        EditText distance = (EditText) findViewById(R.id.distancia);
 
         String nome = name.getText().toString();
+        String rua = road.getText().toString();
+        String localidade = place.getText().toString();
+        String distancia = distance.getText().toString();
 
         Button regist = (Button) findViewById(R.id.btnregist);
 
         //validating inputs
                 if (TextUtils.isEmpty(nome)) {
-                    name.setError("Please enter your username");
+                    name.setError("Please enter the name of the pavilion");
                     name.requestFocus();
                     return;
                 }else {
-                    insert(nome);
+                    insert(nome, rua, localidade, distancia);
                 }
     }
 
     //Metodo INSERT
-    public void insert(String nome){
-        String url = prefix_url + "/prova/update/" + id;
+    public void insert(String nome, String rua, String localidade, String distancia){
+        String url = prefix_url + "/pavilhao/update/" + id;
         Log.d("updateabd; ID", id + "; NOME: " + nome);
         Map<String, String> jsonParams = new HashMap<String, String>();
         jsonParams.put("nome", nome);
+        jsonParams.put("rua", rua);
+        jsonParams.put("localidade", localidade);
+        jsonParams.put("distancia", distancia);
+
         JsonObjectRequest postRequest = new JsonObjectRequest(Request.Method.POST, url,
                 new JSONObject(jsonParams),
                 new Response.Listener<JSONObject>() {
@@ -76,13 +86,13 @@ public class Edit_Prova extends AppCompatActivity {
                         try {
                             if (response.getBoolean("status")) {
                                 //Bloco de codigo
-                                Toast.makeText(Edit_Prova.this, "Inserido com sucesso!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Edit_Pavilhao.this, "Inserido com sucesso!", Toast.LENGTH_SHORT).show();
                                 finish();
 
                             } else {
 
                                 //Bloco de codigo
-                                Toast.makeText(Edit_Prova.this, "Erro na inserção!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Edit_Pavilhao.this, "Erro na inserção!", Toast.LENGTH_SHORT).show();
 
                             }
                         } catch (JSONException ex) {
@@ -93,7 +103,7 @@ public class Edit_Prova extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(Edit_Prova.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Edit_Pavilhao.this, error.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }) {
             @Override

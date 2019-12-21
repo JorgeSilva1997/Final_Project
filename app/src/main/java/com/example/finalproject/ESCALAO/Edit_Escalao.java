@@ -1,14 +1,11 @@
-package com.example.finalproject.PROVA;
+package com.example.finalproject.ESCALAO;
 
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import android.util.Patterns;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,18 +17,15 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.finalproject.R;
 import com.example.finalproject.VolleySingleton;
-import com.example.finalproject.md5;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.regex.Pattern;
 
 
-public class Edit_Prova extends AppCompatActivity {
+public class Edit_Escalao extends AppCompatActivity {
     String prefix_url = "http://andrefelix.dynip.sapo.pt/projetofinalpm/index.php/api";
     String id;
     @Override
@@ -76,13 +70,13 @@ public class Edit_Prova extends AppCompatActivity {
                         try {
                             if (response.getBoolean("status")) {
                                 //Bloco de codigo
-                                Toast.makeText(Edit_Prova.this, "Inserido com sucesso!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Edit_Escalao.this, "Inserido com sucesso!", Toast.LENGTH_SHORT).show();
                                 finish();
 
                             } else {
 
                                 //Bloco de codigo
-                                Toast.makeText(Edit_Prova.this, "Erro na inserção!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Edit_Escalao.this, "Erro na inserção!", Toast.LENGTH_SHORT).show();
 
                             }
                         } catch (JSONException ex) {
@@ -93,7 +87,7 @@ public class Edit_Prova extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(Edit_Prova.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Edit_Escalao.this, error.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }) {
             @Override
