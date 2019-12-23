@@ -1,10 +1,17 @@
 package com.example.finalproject.EQUIPA;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -110,5 +117,90 @@ public class Equipa extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    //CONTEXT MENU//
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_contextual, menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        final AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        Context mContext = this;
+        switch (item.getItemId()) {
+            case R.id.editar:
+                Intent intent = new Intent(Equipa.this, Edit_Equipa.class);
+                int itemPosition = info.position;
+                String id = arrayEquipa.get(itemPosition).ID;
+                intent.putExtra("ID", id);
+                intent.putExtra("nome", arrayEquipa.get(itemPosition).NOME);
+                startActivity(intent);
+                return true;
+            case R.id.remover:
+                AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+                builder.setCancelable(true);
+                builder.setMessage("Are you sure?");
+                builder.setPositiveButton("YES",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                /*int itemPosition = info.position;
+                                c.moveToPosition(itemPosition);
+                                int id_contacto = c.getInt(c.getColumnIndex(Contrato.Contacto._ID));
+                                deleteFromBD(id_contacto);*/
+                                int itemPosition = info.position;
+                                String idremove = arrayEquipa.get(itemPosition).ID;
+                                deleteFromBD(idremove);
+                                filllista();
+                            }
+                        });
+                builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
+    }
+    //CONTEXT MENU
+    private void deleteFromBD(String id){
+        String url = prefix_url + "equipa/delete" + id ;
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            boolean resultado = response.getBoolean("status");
+                            if (resultado) {
+
+                            } else {
+                                //password.setText(null);
+                                Toast.makeText(Equipa.this, "Eliminar falhou", Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException ex) {
+                            Log.d("Erro de ", "" + ex);
+                        }
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(Equipa.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+
+        // Access the RequestQueue through your singleton class.
+        VolleySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
+    }
+
 
 }

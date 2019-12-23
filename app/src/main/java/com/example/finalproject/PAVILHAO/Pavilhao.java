@@ -44,6 +44,8 @@ public class Pavilhao extends AppCompatActivity {
         setContentView(R.layout.pavilhao);
 
         lista = (ListView) findViewById(R.id.lista);
+        registerForContextMenu(lista);
+
         //id = getIntent().getIntExtra("ID", -1);
         //tipo = getIntent().getIntExtra("TIPO", -1);
         filllista();
@@ -174,7 +176,7 @@ public class Pavilhao extends AppCompatActivity {
 
 
     private void deleteFromBD(String id){
-        String url = prefix_url + "pavilhao/delete" + id ;
+        String url = prefix_url + "/pavilhao/delete/" + id ;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 

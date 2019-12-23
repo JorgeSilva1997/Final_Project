@@ -171,7 +171,7 @@ public class List_Users extends AppCompatActivity {
     }
     //CONTEXT MENU
     private void deleteFromBD(String id){
-        String url = prefix_url + "users/delete" + id ;
+        String url = prefix_url + "/users/delete/" + id ;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 

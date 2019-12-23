@@ -165,7 +165,7 @@ public class Prova extends AppCompatActivity {
     }
     //CONTEXT MENU
     private void deleteFromBD(String id){
-        String url = prefix_url + "prova/delete" + id ;
+        String url = prefix_url + "/prova/delete/" + id ;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 

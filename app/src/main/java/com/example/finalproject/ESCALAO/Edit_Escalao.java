@@ -58,7 +58,7 @@ public class Edit_Escalao extends AppCompatActivity {
 
     //Metodo INSERT
     public void insert(String nome){
-        String url = prefix_url + "/prova/update/" + id;
+        String url = prefix_url + "/escalao/update/" + id;
         Log.d("updateabd; ID", id + "; NOME: " + nome);
         Map<String, String> jsonParams = new HashMap<String, String>();
         jsonParams.put("nome", nome);
