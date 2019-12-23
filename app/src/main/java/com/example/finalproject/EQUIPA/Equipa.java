@@ -43,12 +43,12 @@ public class Equipa extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.equipa);
         lista = (ListView) findViewById(R.id.lista);
+        registerForContextMenu(lista);
         filllista();
 
 
     }
     private void filllista(){
-
         arrayEquipa.removeAll(arrayEquipa);
    /////////////////////////   GET     /////////////////////////
         String url = prefix_url + "/equipass";
@@ -171,7 +171,8 @@ public class Equipa extends AppCompatActivity {
     }
     //CONTEXT MENU
     private void deleteFromBD(String id){
-        String url = prefix_url + "equipa/delete" + id ;
+        //int i= Integer.valueOf(id);
+        String url = prefix_url + "/equipas/delete/" + id ;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 
@@ -180,7 +181,7 @@ public class Equipa extends AppCompatActivity {
                         try {
                             boolean resultado = response.getBoolean("status");
                             if (resultado) {
-
+                                filllista();
                             } else {
                                 //password.setText(null);
                                 Toast.makeText(Equipa.this, "Eliminar falhou", Toast.LENGTH_SHORT).show();
@@ -194,7 +195,6 @@ public class Equipa extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(Equipa.this, error.getMessage(), Toast.LENGTH_SHORT).show();
-
                     }
                 });
 

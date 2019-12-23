@@ -48,6 +48,7 @@ public class List_Users extends AppCompatActivity {
         filllista();
     }
         private void filllista(){
+        arrayUsers.removeAll(arrayUsers);
         /////////////////////////   GET     /////////////////////////
         String url = prefix_url + "/utilizador";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
@@ -180,8 +181,7 @@ public class List_Users extends AppCompatActivity {
                         try {
                             boolean resultado = response.getBoolean("status");
                             if (resultado) {
-
-
+                                filllista();
                             } else {
                                 //password.setText(null);
                                 Toast.makeText(List_Users.this, "Eliminar falhou", Toast.LENGTH_SHORT).show();

@@ -185,7 +185,7 @@ public class Pavilhao extends AppCompatActivity {
                         try {
                             boolean resultado = response.getBoolean("status");
                             if (resultado) {
-
+                                filllista();
                             } else {
                                 //password.setText(null);
                                 Toast.makeText(Pavilhao.this, "Eliminar falhou", Toast.LENGTH_SHORT).show();

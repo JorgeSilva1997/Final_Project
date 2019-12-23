@@ -181,8 +181,7 @@ public class Escalao extends AppCompatActivity {
                         try {
                             boolean resultado = response.getBoolean("status");
                             if (resultado) {
-
-
+                                filllista();
                             } else {
                                 //password.setText(null);
                                 Toast.makeText(Escalao.this, "Eliminar falhou", Toast.LENGTH_SHORT).show();
