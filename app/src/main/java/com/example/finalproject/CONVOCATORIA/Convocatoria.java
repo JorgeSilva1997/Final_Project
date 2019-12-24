@@ -22,6 +22,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.finalproject.ARRAYADAPTER.MyArrayAdapter;
+import com.example.finalproject.ARRAYADAPTER.MyArrayAdapterConvocatoria;
 import com.example.finalproject.PAVILHAO.Edit_Pavilhao;
 import com.example.finalproject.PAVILHAO.Pavilhao_Model;
 import com.example.finalproject.PAVILHAO.Regist_Pavilhao;
@@ -37,7 +38,7 @@ import java.util.ArrayList;
 public class Convocatoria extends AppCompatActivity {
 
     String prefix_url = "http://andrefelix.dynip.sapo.pt/projetofinalpm/index.php/api";
-    ArrayList<Pavilhao_Model> arrayPavilhao = new ArrayList<>();
+    ArrayList<Convocatoria_Model> arrayConvocatoria = new ArrayList<>();
     ListView lista;
 
 
@@ -54,7 +55,7 @@ public class Convocatoria extends AppCompatActivity {
         filllista();
     }
     private void filllista(){
-        arrayPavilhao.removeAll(arrayPavilhao);
+        arrayConvocatoria.removeAll(arrayConvocatoria);
 
         /////////////////////////   GET     /////////////////////////
         String url = prefix_url + "/convocatoriadetalhada";
@@ -72,14 +73,21 @@ public class Convocatoria extends AppCompatActivity {
                                 for (int i = 0; i < array.length(); i++) {
 
                                     JSONObject object1 = array.getJSONObject(i);
-                                    arrayPavilhao.add(new Pavilhao_Model(object1.getString("id"), object1.getString("nome"), object1.getString("rua"), object1.getString("localidade"), object1.getString("distancia")));
+                                    arrayConvocatoria.add(new Convocatoria_Model(object1.getString("id_convocatoria"),
+                                            object1.getString("datahora"), object1.getString("prova_id"),
+                                            object1.getString("prova_nome"), object1.getString("escalao_id"),
+                                            object1.getString("escalao_nome"), object1.getString("equipa_visitada_id"),
+                                            object1.getString("equipa_visitada_nome"), object1.getString("equipa_visitante_id"),
+                                            object1.getString("equipa_visitante_nome"), object1.getString("pavilhao_id"),
+                                            object1.getString("pavilhao_nome"), object1.getString("user_id"),
+                                            object1.getString("user_nome")));
                                     //id.setText(object1.getString("id"));
                                     //nome.setText(object1.getString("nome"));
                                     //password.setText(object1.getString("password"));
                                     //email.setText(object1.getString("email"));
                                     //numero.setText(String.valueOf(object1.getInt("number")));
                                     //nif.setText(String.valueOf(object1.getInt("nif")));
-                                    MyArrayAdapter itemsAdapter = new MyArrayAdapter(Convocatoria.this, arrayPavilhao);
+                                    MyArrayAdapter itemsAdapter = new MyArrayAdapterConvocatoria(Convocatoria.this, arrayConvocatoria);
                                     ((ListView) findViewById(R.id.lista)).setAdapter(itemsAdapter);
                                 }
                             } else {
@@ -137,12 +145,12 @@ public class Convocatoria extends AppCompatActivity {
             case R.id.editar:
                 Intent intent = new Intent(Convocatoria.this, Edit_Pavilhao.class);
                 int itemPosition = info.position;
-                String id = arrayPavilhao.get(itemPosition).ID;
+                String id = arrayConvocatoria.get(itemPosition).id_convocatoria;
                 intent.putExtra("ID", id);
-                intent.putExtra("nome", arrayPavilhao.get(itemPosition).NOME);
-                intent.putExtra("rua", arrayPavilhao.get(itemPosition).RUA);
-                intent.putExtra("localidade", arrayPavilhao.get(itemPosition).LOCALIDADE);
-                intent.putExtra("distancia", arrayPavilhao.get(itemPosition).DISTANCIA);
+                intent.putExtra("nome", arrayConvocatoria.get(itemPosition).NOME);
+                intent.putExtra("rua", arrayConvocatoria.get(itemPosition).RUA);
+                intent.putExtra("localidade", arrayConvocatoria.get(itemPosition).LOCALIDADE);
+                intent.putExtra("distancia", arrayConvocatoria.get(itemPosition).DISTANCIA);
                 startActivity(intent);
                 return true;
             case R.id.remover:
@@ -158,7 +166,7 @@ public class Convocatoria extends AppCompatActivity {
                                 int id_contacto = c.getInt(c.getColumnIndex(Contrato.Contacto._ID));
                                 deleteFromBD(id_contacto);*/
                                 int itemPosition = info.position;
-                                String idremove = arrayPavilhao.get(itemPosition).ID;
+                                String idremove = arrayConvocatoria.get(itemPosition).ID;
                                 deleteFromBD(idremove);
                                 filllista();
                             }
@@ -179,7 +187,7 @@ public class Convocatoria extends AppCompatActivity {
 
 
     private void deleteFromBD(String id){
-        String url = prefix_url + "/pavilhao/delete/" + id ;
+        String url = prefix_url + "/convocatoria/delete/" + id ;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingRight="16dp"
+    android:paddingLeft="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    android:id="@+id/activity_second"
+    tools:context=".CONVOCATORIA.Convocatoria">
+
+    <TextView
+        android:id="@+id/user_nome"
+        android:textStyle="bold"
+        android:textSize="17dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+
+        ></TextView>
+    <TextView
+        android:id="@+id/equipa_visitada_nome"
+        android:textStyle="bold"
+        android:textSize="17dp"
+        android:layout_below="@id/user_nome"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+
+        ></TextView>
+    <TextView
+        android:layout_alignParentRight="true"
+        android:id="@+id/id_convocatoria"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+
+        ></TextView>
+    <TextView
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/id_convocatoria"
+        android:id="@+id/datahora"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+
+        ></TextView>
+    <TextView
+        android:layout_below="@id/equipa_visitada_nome"
+        android:paddingTop="4dp"
+        android:id="@+id/equipa_visitante_nome"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        ></TextView>
+    <TextView
+        android:id="@+id/pavilhao_nome"
+        android:layout_below="@id/equipa_visitada_nome"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        ></TextView>
+    <TextView
+        android:id="@+id/escalao_nome"
+        android:layout_below="@id/pavilhao_nome"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        ></TextView>
+    <TextView
+        android:id="@+id/prova_nova"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/escalao_nome"
+        ></TextView>
+</RelativeLayout>
