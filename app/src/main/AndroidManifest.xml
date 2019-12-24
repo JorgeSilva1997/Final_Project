@@ -27,6 +27,11 @@
         <activity android:name=".MAIN.Main" />
         <activity android:name=".MAIN.Main_admin" />
 
+        <activity android:name=".CONVOCATORIA.Convocatoria" />
+        <activity android:name=".CONVOCATORIA.Regist_Convocatoria" />
+        <activity android:name=".CONVOCATORIA.Edit_Convocatoria" />
+
+
         <activity android:name=".USER.Perfil_User" />
         <activity android:name=".USER.Regist" />
         <activity android:name=".USER.Edit_User" />

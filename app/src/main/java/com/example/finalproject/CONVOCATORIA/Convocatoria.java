@@ -87,7 +87,7 @@ public class Convocatoria extends AppCompatActivity {
                                     //email.setText(object1.getString("email"));
                                     //numero.setText(String.valueOf(object1.getInt("number")));
                                     //nif.setText(String.valueOf(object1.getInt("nif")));
-                                    MyArrayAdapter itemsAdapter = new MyArrayAdapterConvocatoria(Convocatoria.this, arrayConvocatoria);
+                                    MyArrayAdapterConvocatoria itemsAdapter = new MyArrayAdapterConvocatoria(Convocatoria.this, arrayConvocatoria);
                                     ((ListView) findViewById(R.id.lista)).setAdapter(itemsAdapter);
                                 }
                             } else {
@@ -147,10 +147,15 @@ public class Convocatoria extends AppCompatActivity {
                 int itemPosition = info.position;
                 String id = arrayConvocatoria.get(itemPosition).id_convocatoria;
                 intent.putExtra("ID", id);
-                intent.putExtra("nome", arrayConvocatoria.get(itemPosition).NOME);
-                intent.putExtra("rua", arrayConvocatoria.get(itemPosition).RUA);
-                intent.putExtra("localidade", arrayConvocatoria.get(itemPosition).LOCALIDADE);
-                intent.putExtra("distancia", arrayConvocatoria.get(itemPosition).DISTANCIA);
+                intent.putExtra("datahora", arrayConvocatoria.get(itemPosition).datahora);
+                intent.putExtra("prova_id", arrayConvocatoria.get(itemPosition).prova_id);
+                intent.putExtra("escalao_id", arrayConvocatoria.get(itemPosition).escalao_id);
+                intent.putExtra("equipa_visitada_id", arrayConvocatoria.get(itemPosition).equipa_visitada_id);
+                intent.putExtra("equipa_visitante_id", arrayConvocatoria.get(itemPosition).equipa_visitante_id);
+                intent.putExtra("pavilhao_id", arrayConvocatoria.get(itemPosition).pavilhao_id);
+                intent.putExtra("user_id", arrayConvocatoria.get(itemPosition).pavilhao_id);
+
+
                 startActivity(intent);
                 return true;
             case R.id.remover:
@@ -166,7 +171,7 @@ public class Convocatoria extends AppCompatActivity {
                                 int id_contacto = c.getInt(c.getColumnIndex(Contrato.Contacto._ID));
                                 deleteFromBD(id_contacto);*/
                                 int itemPosition = info.position;
-                                String idremove = arrayConvocatoria.get(itemPosition).ID;
+                                String idremove = arrayConvocatoria.get(itemPosition).id_convocatoria;
                                 deleteFromBD(idremove);
                                 filllista();
                             }

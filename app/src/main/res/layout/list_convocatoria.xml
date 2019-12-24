@@ -67,7 +67,7 @@
 
         ></TextView>
     <TextView
-        android:id="@+id/prova_nova"
+        android:id="@+id/prova_nome"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/escalao_nome"

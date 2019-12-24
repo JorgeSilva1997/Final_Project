@@ -28,14 +28,18 @@ public class MyArrayAdapterConvocatoria extends ArrayAdapter<Convocatoria_Model>
         Convocatoria_Model c = getItem(position);
         if(convertView == null)
         {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.listview_row, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_convocatoria, parent, false);
         }
-        ((TextView) convertView.findViewById(R.id.id)).setText(c.getId_convocatoria());
-        ((TextView) convertView.findViewById(R.id.nome)).setText(c.get());
+        ((TextView) convertView.findViewById(R.id.id_convocatoria)).setText(c.getId_convocatoria());
+        ((TextView) convertView.findViewById(R.id.user_nome)).setText(c.getUser_nome());
 
-        ((TextView) convertView.findViewById(R.id.rua)).setText(c.getRUA());
-        ((TextView) convertView.findViewById(R.id.localidade)).setText(c.getLOCALIDADE());
-        ((TextView) convertView.findViewById(R.id.distancia)).setText(c.getDISTANCIA());
+        ((TextView) convertView.findViewById(R.id.equipa_visitada_nome)).setText(c.getEquipa_visitada_nome());
+        ((TextView) convertView.findViewById(R.id.user_nome)).setText(c.getUser_nome());
+        ((TextView) convertView.findViewById(R.id.datahora)).setText(c.getDatahora());
+        ((TextView) convertView.findViewById(R.id.equipa_visitante_nome)).setText(c.getEquipa_visitante_nome());
+        ((TextView) convertView.findViewById(R.id.pavilhao_nome)).setText(c.getPavilhao_nome());
+        ((TextView) convertView.findViewById(R.id.escalao_nome)).setText(c.getEscalao_nome());
+        ((TextView) convertView.findViewById(R.id.prova_nome)).setText(c.getProva_nome());
 
 
 

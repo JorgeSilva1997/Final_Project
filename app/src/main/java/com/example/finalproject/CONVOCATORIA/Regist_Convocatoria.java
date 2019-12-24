@@ -67,7 +67,7 @@ public class Regist_Convocatoria extends AppCompatActivity {
     //Metodo INSERT
     public void insert(String nome, String rua, String localidade, String distancia)
     {
-        String url = prefix_url + "/pavilhaoinserir/insert";
+        String url = prefix_url + "/convocatoria/insert";
         Map<String, String> jsonParams = new HashMap<String, String>();
 
         jsonParams.put("nome", nome);
