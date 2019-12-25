@@ -22,8 +22,6 @@
         ></TextView>
     <TextView
         android:id="@+id/equipa_visitada_nome"
-        android:textStyle="bold"
-        android:textSize="17dp"
         android:layout_below="@id/user_nome"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -31,22 +29,21 @@
         ></TextView>
     <TextView
         android:layout_alignParentRight="true"
-        android:id="@+id/id_convocatoria"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-
-        ></TextView>
-    <TextView
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/id_convocatoria"
         android:id="@+id/datahora"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
 
         ></TextView>
     <TextView
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/datahora"
+        android:id="@+id/id_convocatoria"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+
+        ></TextView>
+    <TextView
         android:layout_below="@id/equipa_visitada_nome"
-        android:paddingTop="4dp"
         android:id="@+id/equipa_visitante_nome"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -54,7 +51,7 @@
         ></TextView>
     <TextView
         android:id="@+id/pavilhao_nome"
-        android:layout_below="@id/equipa_visitada_nome"
+        android:layout_below="@id/equipa_visitante_nome"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
@@ -62,7 +59,8 @@
     <TextView
         android:id="@+id/escalao_nome"
         android:layout_below="@id/pavilhao_nome"
-        android:layout_width="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
 
         ></TextView>
@@ -70,6 +68,6 @@
         android:id="@+id/prova_nome"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/escalao_nome"
+        android:layout_below="@id/pavilhao_nome"
         ></TextView>
 </RelativeLayout>

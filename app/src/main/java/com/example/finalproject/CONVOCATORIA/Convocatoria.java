@@ -45,7 +45,7 @@ public class Convocatoria extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pavilhao);
+        setContentView(R.layout.convocatoria);
 
         lista = (ListView) findViewById(R.id.lista);
         registerForContextMenu(lista);
@@ -73,12 +73,12 @@ public class Convocatoria extends AppCompatActivity {
                                 for (int i = 0; i < array.length(); i++) {
 
                                     JSONObject object1 = array.getJSONObject(i);
-                                    arrayConvocatoria.add(new Convocatoria_Model(object1.getString("id_convocatoria"),
+                                    arrayConvocatoria.add(new Convocatoria_Model("#"+object1.getString("id_convocatoria"),
                                             object1.getString("datahora"), object1.getString("prova_id"),
                                             object1.getString("prova_nome"), object1.getString("escalao_id"),
                                             object1.getString("escalao_nome"), object1.getString("equipa_visitada_id"),
                                             object1.getString("equipa_visitada_nome"), object1.getString("equipa_visitante_id"),
-                                            object1.getString("equipa_visitante_nome"), object1.getString("pavilhao_id"),
+                                            "vs. " + object1.getString("equipa_visitante_nome"), object1.getString("pavilhao_id"),
                                             object1.getString("pavilhao_nome"), object1.getString("user_id"),
                                             object1.getString("user_nome")));
                                     //id.setText(object1.getString("id"));

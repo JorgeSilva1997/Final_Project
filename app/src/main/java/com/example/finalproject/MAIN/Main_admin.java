@@ -11,6 +11,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.finalproject.CONVOCATORIA.Convocatoria;
 import com.example.finalproject.EQUIPA.Equipa;
 import com.example.finalproject.ESCALAO.Escalao;
 import com.example.finalproject.PAVILHAO.Pavilhao;
@@ -31,6 +32,11 @@ public class Main_admin extends AppCompatActivity {
         id = getIntent().getIntExtra("ID", -1);
         tipo = getIntent().getIntExtra("TIPO", -1);
 
+    }
+
+    public void btnConvocatoria(View view){
+        Intent intent = new Intent(Main_admin.this, Convocatoria.class);
+        startActivity(intent);
     }
 
     public void btnUsers(View view) {
