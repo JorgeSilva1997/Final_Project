@@ -40,7 +40,7 @@ public class Regist extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.regist);
 
-        tipo = 0;
+        tipo = 1;
 
         Spinner spinTipo = findViewById(R.id.spinnerTipo);
         spinTipo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

@@ -4,8 +4,12 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,12 +19,19 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.finalproject.ARRAYADAPTER.MyArrayAdapterEquipa;
+import com.example.finalproject.ARRAYADAPTER.MyArrayAdapterProva;
+import com.example.finalproject.EQUIPA.Equipa_Model;
+import com.example.finalproject.PROVA.Prova;
+import com.example.finalproject.PROVA.Prova_Model;
 import com.example.finalproject.R;
 import com.example.finalproject.VolleySingleton;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,59 +40,133 @@ public class Regist_Convocatoria extends AppCompatActivity {
 
     String prefix_url = "http://andrefelix.dynip.sapo.pt/projetofinalpm/index.php/api";
 
+    ArrayList<Equipa_Model> arrayEquipa = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.regist_pavilhao);
+        setContentView(R.layout.registo_convocatoria);
+
+        /*spinner = ((Spinner) findViewById(R.id.spinnerTeste));
+        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.spinner_layout,R.id.txt,arrayEquipa);
+        //spinner.setAdapter(adapter);
+        // SPINNER
+        spinner = ((Spinner) findViewById(R.id.spinnerTeste));
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                //tipo = position;
+                filllista();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });*/
+
     }
 
     public void btnRegist(View view)
     {
 
-        EditText name = (EditText) findViewById(R.id.name);
-        EditText street = (EditText) findViewById(R.id.rua);
-        EditText place = (EditText) findViewById(R.id.localidade);
-        EditText distance = (EditText) findViewById(R.id.distancia);
+        EditText Numerojogo = (EditText) findViewById(R.id.numeroJogo);
+        EditText Data = (EditText) findViewById(R.id.datahora);
+        EditText Prova = (EditText) findViewById(R.id.prova);
+        EditText Escalao = (EditText) findViewById(R.id.escalao);
+        EditText Eq_visitada = (EditText) findViewById(R.id.equipa_visitada);
+        EditText Eq_visitante = (EditText) findViewById(R.id.equipa_visitante);
+        EditText Pavilhao = (EditText) findViewById(R.id.pavilhao);
+        EditText User = (EditText) findViewById(R.id.user);
 
-        String nome = name.getText().toString();
-        String rua = street.getText().toString();
-        String localidade = place.getText().toString();
-        String distancia = distance.getText().toString();
-
+        String id = Numerojogo.getText().toString();
+        String datahora = Data.getText().toString();
+        String prova_id = Prova.getText().toString();
+        String escalao_id = Escalao.getText().toString();
+        String eq_visitada_id = Eq_visitada.getText().toString();
+        String eq_visitante_id = Eq_visitante.getText().toString();
+        String pavilhao_id = Pavilhao.getText().toString();
+        String user_id = User.getText().toString();
 
         Button regist = (Button) findViewById(R.id.btnregist);
 
 
         //validating inputs
-                if (TextUtils.isEmpty(nome)) {
-                    name.setError("Please enter the name of the pavilion");
-                    name.requestFocus();
+                if (TextUtils.isEmpty(id)) {
+                    Numerojogo.setError("Insira um número de jogo");
+                    Numerojogo.requestFocus();
+                    return;
+                }
+                if (TextUtils.isEmpty(datahora)) {
+                    Data.setError("Insira uma data");
+                    Data.requestFocus();
+                    return;
+                }
+                if (TextUtils.isEmpty(prova_id)) {
+                    Prova.setError("Insira um tipo de prova");
+                    Prova.requestFocus();
+                    return;
+                }
+                if (TextUtils.isEmpty(escalao_id)) {
+                    Escalao.setError("Insira um escalão");
+                    Escalao.requestFocus();
+                    return;
+                }
+                if (TextUtils.isEmpty(eq_visitada_id)) {
+                    Eq_visitada.setError("Insira uma equipa visitada");
+                    Eq_visitada.requestFocus();
+                    return;
+                }
+                if (TextUtils.isEmpty(eq_visitante_id)) {
+                    Eq_visitante.setError("Insira uma equipa visitante");
+                    Eq_visitante.requestFocus();
+                    return;
+                }
+                if (TextUtils.isEmpty(pavilhao_id)) {
+                    Pavilhao.setError("Insira um pavilhão");
+                    Pavilhao.requestFocus();
+                    return;
+                }
+                if (TextUtils.isEmpty(user_id)) {
+                    User.setError("Insira um árbitro");
+                    User.requestFocus();
                     return;
                 }
                 else {
 
-                    insert(nome, rua, localidade, distancia);
+                    insert(id, datahora, prova_id, escalao_id, eq_visitada_id, eq_visitante_id, pavilhao_id, user_id);
                 }
     }
 
     //Metodo INSERT
-    public void insert(String nome, String rua, String localidade, String distancia)
+    public void insert(String id, String datahora, String prova_id, String escalao_id, String eq_visitada_id, String eq_visitante_id, String pavilhao_id, String user_id)
     {
-        String url = prefix_url + "/convocatoria/insert";
+        String url = prefix_url + "/teste/convocatoria/insert";
         Map<String, String> jsonParams = new HashMap<String, String>();
 
-        jsonParams.put("nome", nome);
-        jsonParams.put("rua", rua);
-        jsonParams.put("localidade", localidade);
-        jsonParams.put("distancia", distancia);
+        jsonParams.put("id", id);
+
+        jsonParams.put("datahora", datahora);
+
+        jsonParams.put("prova_id", prova_id);
+
+        jsonParams.put("escalao_id", escalao_id);
+
+        jsonParams.put("equipa_visitada_id", eq_visitada_id);
+
+        jsonParams.put("equipa_visitante_id", eq_visitante_id);
+
+        jsonParams.put("pavilhao_id", pavilhao_id);
+
+        jsonParams.put("user_id", user_id);
+
         JsonObjectRequest postRequest = new JsonObjectRequest(Request.Method.POST, url,
+
                 new JSONObject(jsonParams),
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
 
                         try {
-
                             boolean status = response.getBoolean("status");
                             if (status) {
                                 //Bloco de codigo
@@ -116,5 +201,44 @@ public class Regist_Convocatoria extends AppCompatActivity {
 
         };
         VolleySingleton.getInstance(this).addToRequestQueue(postRequest);
+    }
+
+    private void filllista(){
+        /////////////////////////   GET     /////////////////////////
+        String url = prefix_url + "/equipass";
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            boolean status = response.getBoolean("status");
+                            if (status) {
+
+                                JSONArray array = response.getJSONArray("DATA");
+
+                                for (int i = 0; i < array.length(); i++) {
+                                    JSONObject object1 = array.getJSONObject(i);
+                                    arrayEquipa.add(new Equipa_Model(object1.getString("id"), object1.getString("nome")));
+                                    MyArrayAdapterEquipa itemsAdapter = new MyArrayAdapterEquipa(Regist_Convocatoria.this, arrayEquipa);
+                                    ((ListView) findViewById(R.id.lista)).setAdapter(itemsAdapter);
+
+                                }
+
+                            } else {
+                                Toast.makeText(Regist_Convocatoria.this, "" + status, Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException ex) {
+                            Toast.makeText(Regist_Convocatoria.this, "Erro 1!", Toast.LENGTH_SHORT).show();
+
+                        }
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(Regist_Convocatoria.this, "Erro 2!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+        VolleySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
     }
 }

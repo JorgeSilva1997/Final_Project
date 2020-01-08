@@ -97,7 +97,6 @@ public class Login extends AppCompatActivity {
         jsonParams.put("nome", nome);
         String md5Str = computeMD5Hash(password);
         jsonParams.put("password", md5Str);
-        //jsonParams.put("password", password);
 
         JsonObjectRequest postRequest = new JsonObjectRequest(Request.Method.POST, url,
 

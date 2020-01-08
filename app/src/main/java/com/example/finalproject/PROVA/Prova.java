@@ -63,12 +63,6 @@ public class Prova extends AppCompatActivity {
                                 for (int i = 0; i < array.length(); i++) {
                                     JSONObject object1 = array.getJSONObject(i);
                                     arrayProva.add(new Prova_Model(object1.getString("id"), object1.getString("nome")));
-                                    //id.setText(object1.getString("id"));
-                                    //nome.setText(object1.getString("nome"));
-                                    //password.setText(object1.getString("password"));
-                                    //email.setText(object1.getString("email"));
-                                    //numero.setText(String.valueOf(object1.getInt("number")));
-                                    //nif.setText(String.valueOf(object1.getInt("nif")));
                                     MyArrayAdapterProva itemsAdapter = new MyArrayAdapterProva(Prova.this, arrayProva);
                                     ((ListView) findViewById(R.id.lista)).setAdapter(itemsAdapter);
                                 }

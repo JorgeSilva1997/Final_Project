@@ -120,7 +120,7 @@ public class Convocatoria extends AppCompatActivity {
         switch (item.getItemId())
         {
             case R.id.Add:
-                Intent intent = new Intent(Convocatoria.this, Regist_Pavilhao.class);
+                Intent intent = new Intent(Convocatoria.this, Regist_Convocatoria.class);
                 startActivity(intent);
                 filllista();
             default:

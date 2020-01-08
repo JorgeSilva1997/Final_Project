@@ -7,6 +7,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.finalproject.USER.Convocatoria_User;
+import com.example.finalproject.USER.MyPlay_User;
 import com.example.finalproject.USER.Perfil_User;
 import com.example.finalproject.R;
 
@@ -33,5 +35,21 @@ public class Main extends AppCompatActivity {
         startActivity(intent);
 
             }
+
+    public void btnConvocatoria(View view) {
+
+        Intent intent = new Intent(Main.this, Convocatoria_User.class);
+        intent.putExtra("ID", id);
+        startActivity(intent);
+
+    }
+
+    public void btnMyPlay(View view) {
+
+        Intent intent = new Intent(Main.this, MyPlay_User.class);
+        intent.putExtra("ID", id);
+        startActivity(intent);
+
+    }
 
 }

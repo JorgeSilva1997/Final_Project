@@ -49,6 +49,9 @@
 
         <activity android:name=".EQUIPA.Equipa" />
         <activity android:name=".EQUIPA.Regist_Equipa" />
+
+        <activity android:name=".USER.Convocatoria_User" />
+        <activity android:name=".USER.MyPlay_User" />
     </application>
 
 </manifest>

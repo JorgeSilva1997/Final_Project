@@ -1,6 +1,7 @@
 package com.example.finalproject.USER;
 
 import android.os.Bundle;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -10,6 +11,9 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.finalproject.ARRAYADAPTER.MyArrayAdapterEscalao;
+import com.example.finalproject.ARRAYADAPTER.MyArrayAdapterUser;
+import com.example.finalproject.ESCALAO.Escalao;
 import com.example.finalproject.R;
 import com.example.finalproject.VolleySingleton;
 
@@ -66,9 +70,11 @@ public class Perfil_User extends AppCompatActivity {
                                 for (int i = 0; i < array.length(); i++) {
 
                                     JSONObject object1 = array.getJSONObject(i);
-                                    arrayUser.add(new User_Model(object1.getString("id"), object1.getString("nome"),
+                                    /*arrayUser.add(new User_Model(object1.getString("id"), object1.getString("nome"),
                                             object1.getString("password"), object1.getString("email"),
                                             object1.getString("number"), object1.getString("nif"), object1.getString("tipo")));
+*/
+                                    arrayUser.add(new User_Model(object1.getString("id"), object1.getString("nome"), object1.getString("password"), object1.getString("email"), object1.getString("number"), object1.getString("nif"), object1.getString("tipo")));
                                     nome.setText(object1.getString("nome"));
                                     password.setText(object1.getString("password"));
                                     email.setText(object1.getString("email"));
