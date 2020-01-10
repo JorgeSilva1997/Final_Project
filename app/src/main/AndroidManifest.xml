@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.finalproject">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-sdk tools:overrideLibrary="android.support.v17.leanback"/>
 
     <application
         android:allowBackup="true"
@@ -52,6 +55,7 @@
 
         <activity android:name=".USER.Convocatoria_User" />
         <activity android:name=".USER.MyPlay_User" />
+        <activity android:name=".LOGIN.Forgot_Pass" />
     </application>
 
 </manifest>

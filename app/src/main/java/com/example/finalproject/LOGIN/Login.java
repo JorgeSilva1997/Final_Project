@@ -24,6 +24,8 @@ import com.example.finalproject.MAIN.Main_admin;
 import com.example.finalproject.R;
 import com.example.finalproject.VolleySingleton;
 import com.example.finalproject.md5;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.firebase.auth.FirebaseAuth;
 
 
 import java.math.BigInteger;
@@ -35,6 +37,10 @@ import org.json.JSONObject;
 
 public class Login extends AppCompatActivity {
 
+// TESTE
+    private FirebaseAuth mAuth;
+    private GoogleApiClient mGoog;
+//
     String prefix_url = "http://andrefelix.dynip.sapo.pt/projetofinalpm/index.php/api";
     // Este ID é devido a ser Multi-User_Model
     int id_int = -1;
@@ -60,6 +66,10 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+
+        // TESTE
+        //mAuth = FirebaseAuth.getInstance();
+        //
     }
     public void btnLogin(View view) {
         EditText name = (EditText) findViewById(R.id.user);

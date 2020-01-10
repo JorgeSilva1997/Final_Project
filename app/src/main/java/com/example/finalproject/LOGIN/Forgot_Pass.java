@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.finalproject.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Forgot_Pass extends AppCompatActivity {
@@ -31,6 +32,7 @@ public class Forgot_Pass extends AppCompatActivity {
         btnForgot = (Button) findViewById(R.id.btnForgot);
         EditTextEmail = (EditText) findViewById(R.id.EditTextEmail);
 
+        FirebaseApp.initializeApp(Forgot_Pass.this);
         mAuth = FirebaseAuth.getInstance();
 
 
