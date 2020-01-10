@@ -103,8 +103,8 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnregist"
-        android:onClick="btnRegist"
+        android:id="@+id/btnadd"
+        android:onClick="btnAdd"
         android:layout_below="@+id/user"
         android:hint="Nova nomeação"
         android:inputType="text"

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LOGIN.Forgot_Pass"
+    android:background="@mipmap/background">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ImgLayout">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/a1" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/SecondLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Caso tenha esquecido a sua password, insira o seu email e clique no botão abaixo para definir uma nova passoword!"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textColor="#FFFFFF"
+        android:textSize="24dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:id="@+id/textinfo"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Insira aqui o seu e-mail"
+        android:textColorHint="#FFFFFF"
+        android:id="@+id/EditTextEmail"
+        android:layout_below="@id/textinfo"
+        android:layout_marginTop="12dp"
+        android:layout_centerHorizontal="true"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/EditTextEmail"
+            android:id="@+id/btnForgot"
+            android:layout_marginTop="30dp"
+            android:hint=" Send Email "
+            android:fontFamily="monospace"
+            android:textColorHint="#FFFFFF"
+            android:textSize="20dp"
+            android:background="@drawable/btn_border"
+            android:layout_marginRight="75dp"
+            android:layout_marginLeft="75dp"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

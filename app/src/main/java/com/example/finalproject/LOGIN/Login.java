@@ -173,6 +173,11 @@ public class Login extends AppCompatActivity {
         return md5Str;
     }
 
+    public void btnForgot(View view) {
+        Intent intent = new Intent(Login.this, Forgot_Pass.class);
+        startActivity(intent);
+    }
+
 
 
 }
