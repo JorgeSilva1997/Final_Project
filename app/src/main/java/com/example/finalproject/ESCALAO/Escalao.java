@@ -59,11 +59,8 @@ public class Escalao extends AppCompatActivity {
                         try {
                             boolean status = response.getBoolean("status");
                             if (status) {
-
                                 JSONArray array = response.getJSONArray("DATA");
-
                                 for (int i = 0; i < array.length(); i++) {
-
                                     JSONObject object1 = array.getJSONObject(i);
                                     arrayEscalao.add(new Escalao_Model(object1.getString("id"), object1.getString("nome")));
                                     //id.setText(object1.getString("id"));
@@ -75,7 +72,6 @@ public class Escalao extends AppCompatActivity {
                                     MyArrayAdapterEscalao itemsAdapter = new MyArrayAdapterEscalao(Escalao.this, arrayEscalao);
                                     ((ListView) findViewById(R.id.lista)).setAdapter(itemsAdapter);
                                 }
-
                             } else {
                                 Toast.makeText(Escalao.this, "" + status, Toast.LENGTH_SHORT).show();
                             }

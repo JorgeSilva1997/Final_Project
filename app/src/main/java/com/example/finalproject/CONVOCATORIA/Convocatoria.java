@@ -207,7 +207,7 @@ public class Convocatoria extends AppCompatActivity {
                                 Toast.makeText(Convocatoria.this, "Eliminar falhou", Toast.LENGTH_SHORT).show();
                             }
                         } catch (JSONException ex) {
-                            Log.d("Erro de ", "" + ex);
+                            Log.d("Erro de", "" + ex);
                         }
                     }
                 }, new Response.ErrorListener() {
