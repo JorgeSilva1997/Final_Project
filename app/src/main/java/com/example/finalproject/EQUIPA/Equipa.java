@@ -109,7 +109,7 @@ public class Equipa extends AppCompatActivity {
         switch (item.getItemId())
         {
             case R.id.Add:
-
+                arrayEquipa.removeAll(arrayEquipa);
                 Intent intent = new Intent(Equipa.this, Regist_Equipa.class);
                 startActivity(intent);
                 filllista();
@@ -171,6 +171,7 @@ public class Equipa extends AppCompatActivity {
     }
     //CONTEXT MENU
     private void deleteFromBD(String id){
+        arrayEquipa.removeAll(arrayEquipa);
         //int i= Integer.valueOf(id);
         String url = prefix_url + "/equipas/delete/" + id ;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
