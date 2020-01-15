@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
@@ -18,9 +19,14 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.finalproject.LOGIN.Login;
 import com.example.finalproject.R;
 import com.example.finalproject.VolleySingleton;
 import com.example.finalproject.md5;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -32,14 +38,17 @@ import java.util.regex.Pattern;
 
 
 public class Regist extends AppCompatActivity {
+
     String prefix_url = "http://andrefelix.dynip.sapo.pt/projetofinalpm/index.php/api";
     int tipo;
+    FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.regist);
 
+        firebaseAuth = FirebaseAuth.getInstance();
         tipo = 1;
 
         Spinner spinTipo = findViewById(R.id.spinnerTipo);
@@ -103,9 +112,26 @@ public class Regist extends AppCompatActivity {
                 else {
 
                     insert(nome, password, email, number, nif, tipo);
+                    autenticacao_firebase(email, password);
                 }
     }
 
+
+
+    public void autenticacao_firebase(String email, String password) {
+
+        firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful())    {
+                    Toast.makeText(Regist.this, "Registado com sucesso", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(Regist.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
 
 
     // Código para verificar se a PASSWORD cumpre os requisitos

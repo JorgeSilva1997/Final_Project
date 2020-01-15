@@ -126,8 +126,8 @@ public class Regist_Convocatoria extends AppCompatActivity {
     //Metodo INSERT
     public void add(/*String id,*/ String datahora, String prova_id, String escalao_id, String eq_visitada_id, String eq_visitante_id, String pavilhao_id, String user_id)
     {
-        //String url = prefix_url + "/teste/convocatoria/insert";
-        String url = "http://andrefelix.dynip.sapo.pt/projetofinalpm/index.php/api/userss/insert";
+        String url = prefix_url + "/teste/convocatoria/insert";
+        //String url = "http://andrefelix.dynip.sapo.pt/projetofinalpm/index.php/api/userss/insert";
         Map<String, String> jsonParams = new HashMap<String, String>();
 
         //jsonParams.put("id", id);

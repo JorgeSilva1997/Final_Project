@@ -43,7 +43,7 @@ import org.json.JSONObject;
 public class Login extends AppCompatActivity {
 
 // TESTE
-    private FirebaseAuth firebaseAuth;
+    FirebaseAuth firebaseAuth;
 //
     String prefix_url = "http://andrefelix.dynip.sapo.pt/projetofinalpm/index.php/api";
     // Este ID é devido a ser Multi-User_Model
@@ -57,6 +57,7 @@ public class Login extends AppCompatActivity {
     //EditText username, password;
     //SharedPreferences sharedPreferences;
     //SharedPreferences.Editor editor;
+    ///////////////////////////////////////////
     private CheckBox lembrar;
     public static String PREFS_NAME = "mypre";
     public static String PREF_LEMBRAR = "lembrar";
@@ -97,23 +98,7 @@ public class Login extends AppCompatActivity {
         else {
 
             autenticacao(nome, password);
-            autenticacao_firebase(nome, password);
         }
-    }
-
-    public void autenticacao_firebase(String nome, String password) {
-
-        firebaseAuth.createUserWithEmailAndPassword(nome, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful())    {
-                    Toast.makeText(Login.this, "Registado com sucesso", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    Toast.makeText(Login.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
     }
 
     public void autenticacao(String nome, String password)  {
