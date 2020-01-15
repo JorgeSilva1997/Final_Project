@@ -3,98 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LOGIN.Login_Admin"
-    android:background="#000000">
+    tools:context=".LOGIN.Login_Admin">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
+
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/firsLayout"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="75dp"
-        android:layout_marginLeft="75dp"
-        android:background="#21395F">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
-            android:id="@+id/text"
-            android:hint="ADMIN LOGIN"
-            android:fontFamily="sans-serif"
-            android:textColorHint="#FFFFFF"
-            android:textSize="16dp"/>
-
-        <!-- CAMPO USER -->
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_user"
-            android:id="@+id/imgUserAdmin"
-            android:layout_below="@id/text"
-            android:layout_marginLeft="18dp"
-            android:layout_marginTop="40dp"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/text"
-            android:id="@+id/user"
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="45dp"
-            android:layout_marginRight="15dp"
-            android:hint="  Username"
-            android:inputType="text"
-            android:fontFamily="sans-serif-condensed-light"
-            android:textColorHint="#FFFFFF"
-
-            android:background="@drawable/pass_edittext"/>
-
-        <!-- CAMPO PASSWORD -->
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_pass"
-            android:id="@+id/imgPassAdmin"
-            android:layout_below="@id/text"
-            android:layout_marginLeft="18dp"
-            android:layout_marginTop="95dp"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/user"
-            android:layout_marginTop="15dp"
-            android:id="@+id/pass"
-            android:layout_marginLeft="45dp"
-            android:layout_marginRight="15dp"
-            android:hint="  Password"
-            android:fontFamily="sans-serif-condensed-light"
-            android:inputType="textPassword"
-            android:textColorHint="#FFFFFF"
-
-            android:background="@drawable/pass_edittext"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/pass"
-            android:id="@+id/btnLoginAdmin"
-            android:layout_marginTop="35dp"
-            android:hint="Login"
-            android:background="@drawable/circle_button"
-            android:layout_marginLeft="15dp"
-            android:layout_marginBottom="20dp"
-            android:textColorHint="#FFFFFF"
-            android:fontFamily="sans-serif-smallcaps"
-            />
-            <!--android:onClick="btnLoginAdmin"-->
-
-
-    </RelativeLayout>
+        android:textAllCaps="true"
+        android:textSize="20sp"
+        android:visibility="visible"
+        tools:text="My beautiful Title"/>
 
 </RelativeLayout>

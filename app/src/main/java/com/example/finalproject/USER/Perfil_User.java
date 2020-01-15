@@ -42,8 +42,6 @@ public class Perfil_User extends AppCompatActivity {
         setContentView(R.layout.perfil_user);
         id = getIntent().getIntExtra("ID", -1);
 
-        Toast.makeText(Perfil_User.this, "" + id, Toast.LENGTH_SHORT).show();
-
         nome = (TextView) findViewById(R.id.EditTextNome);
         password = (TextView) findViewById(R.id.EditTextPassword);
         email = (TextView) findViewById(R.id.EditTextEmail);
@@ -70,11 +68,11 @@ public class Perfil_User extends AppCompatActivity {
                                 for (int i = 0; i < array.length(); i++) {
 
                                     JSONObject object1 = array.getJSONObject(i);
-                                    /*arrayUser.add(new User_Model(object1.getString("id"), object1.getString("nome"),
+                                    arrayUser.add(new User_Model(object1.getString("id"), object1.getString("nome"),
                                             object1.getString("password"), object1.getString("email"),
                                             object1.getString("number"), object1.getString("nif"), object1.getString("tipo")));
-*/
-                                    arrayUser.add(new User_Model(object1.getString("id"), object1.getString("nome"), object1.getString("password"), object1.getString("email"), object1.getString("number"), object1.getString("nif"), object1.getString("tipo")));
+
+                                    //arrayUser.add(new User_Model(object1.getString("id"), object1.getString("nome"), object1.getString("password"), object1.getString("email"), object1.getString("number"), object1.getString("nif"), object1.getString("tipo")));
                                     nome.setText(object1.getString("nome"));
                                     password.setText(object1.getString("password"));
                                     email.setText(object1.getString("email"));
@@ -87,6 +85,7 @@ public class Perfil_User extends AppCompatActivity {
                             }
                         } catch (JSONException ex) {
                             Toast.makeText(Perfil_User.this, "Erro 1!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Perfil_User.this, "" + nome, Toast.LENGTH_SHORT).show();
 
                         }
                     }

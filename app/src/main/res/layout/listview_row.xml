@@ -2,61 +2,55 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/id"
-        android:textSize="18dp"
-        android:textStyle="normal"
-        android:layout_marginLeft="12dp"/>
-
+    <!-- NOME -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/nome"
-        android:textSize="18dp"
-        android:textStyle="bold"
-        android:layout_toRightOf="@id/id"
-        android:layout_marginLeft="12dp"
-        android:maxLength="20"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textSize="18dp"/>
 
-        android:fontFamily="sans-serif-smallcaps"/>
-
+    <!-- RUA -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/rua"
-        android:textSize="18dp"
-        android:textStyle="bold"
-        android:layout_toRightOf="@id/nome"
-        android:layout_marginLeft="12dp"
-
-        android:maxLength="20"
-        android:fontFamily="sans-serif-smallcaps"/>
-
+        android:layout_below="@id/nome"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textSize="18dp"/>
+    <!-- LOCAL -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/localidade"
-        android:textSize="18dp"
-        android:textStyle="bold"
+        android:layout_below="@id/nome"
         android:layout_toRightOf="@id/rua"
-        android:layout_marginLeft="12dp"
-
-        android:maxLength="20"
-        android:fontFamily="sans-serif-smallcaps"/>
-
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textSize="18dp"/>
+    <!-- KM -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/distancia"
-        android:textSize="18dp"
-        android:textStyle="bold"
-        android:layout_toRightOf="@id/localidade"
-        android:layout_marginLeft="12dp"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="30dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textSize="18dp"/>
 
-        android:maxLength="20"
-        android:fontFamily="sans-serif-smallcaps"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Km"
+        android:layout_marginTop="9dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="2dp"
+        android:textSize="18dp"    />
 
 </RelativeLayout>

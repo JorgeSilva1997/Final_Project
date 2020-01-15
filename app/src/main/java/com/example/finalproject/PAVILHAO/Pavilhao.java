@@ -70,12 +70,6 @@ public class Pavilhao extends AppCompatActivity {
 
                                     JSONObject object1 = array.getJSONObject(i);
                                     arrayPavilhao.add(new Pavilhao_Model(object1.getString("id"), object1.getString("nome"), object1.getString("rua"), object1.getString("localidade"), object1.getString("distancia")));
-                                    //id.setText(object1.getString("id"));
-                                    //nome.setText(object1.getString("nome"));
-                                    //password.setText(object1.getString("password"));
-                                    //email.setText(object1.getString("email"));
-                                    //numero.setText(String.valueOf(object1.getInt("number")));
-                                    //nif.setText(String.valueOf(object1.getInt("nif")));
                                     MyArrayAdapter itemsAdapter = new MyArrayAdapter(Pavilhao.this, arrayPavilhao);
                                     ((ListView) findViewById(R.id.lista)).setAdapter(itemsAdapter);
                                 }

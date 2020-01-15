@@ -27,24 +27,25 @@ import java.util.Map;
 
 public class Edit_Equipa extends AppCompatActivity {
     String prefix_url = "http://andrefelix.dynip.sapo.pt/projetofinalpm/index.php/api";
-    String id;
+    String id, id_team;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.regist_equipa);
+
         EditText name = (EditText) findViewById(R.id.name);
 
         id = getIntent().getStringExtra("ID");
         name.setText(getIntent().getStringExtra("nome"));
     }
 
-    public void btnRegist(View view)
+    public void btnUpdate(View view)
     {
         EditText name = (EditText) findViewById(R.id.name);
 
         String nome = name.getText().toString();
 
-        Button regist = (Button) findViewById(R.id.btnregist);
+        Button update = (Button) findViewById(R.id.btnupdate);
 
         //validating inputs
                 if (TextUtils.isEmpty(nome)) {
@@ -52,23 +53,28 @@ public class Edit_Equipa extends AppCompatActivity {
                     name.requestFocus();
                     return;
                 }else {
-                    insert(nome);
+                    update(nome);
                 }
     }
 
-    //Metodo INSERT
-    public void insert(String nome){
-        String url = prefix_url + "/equipa/update/" + id;
+    //Metodo update
+    public void update(String nome){
+
+        String url = prefix_url + "/team/update/" + id;
         Log.d("updateabd; ID", id + "; NOME: " + nome);
+        Toast.makeText(Edit_Equipa.this, "" + id, Toast.LENGTH_SHORT).show();
         Map<String, String> jsonParams = new HashMap<String, String>();
+
         jsonParams.put("nome", nome);
-        JsonObjectRequest postRequest = new JsonObjectRequest(Request.Method.POST, url,
+        JsonObjectRequest postRequest = new JsonObjectRequest(Request.Method.PUT, url,
                 new JSONObject(jsonParams),
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
+
                         try {
-                            if (response.getBoolean("status")) {
+                            boolean status = response.getBoolean("status");
+                            if (status) {
                                 //Bloco de codigo
                                 Toast.makeText(Edit_Equipa.this, "Inserido com sucesso!", Toast.LENGTH_SHORT).show();
                                 finish();
@@ -80,14 +86,15 @@ public class Edit_Equipa extends AppCompatActivity {
 
                             }
                         } catch (JSONException ex) {
-                            Log.d("regist", "" + ex);
+                            Log.d("regist", "Erro 1!" + ex);
                         }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(Edit_Equipa.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                        //Log.d("regist3", "" + error.getMessage());
+                        //Toast.makeText(Edit_Equipa.this, "Erro 2!", Toast.LENGTH_SHORT).show();
                     }
                 }) {
             @Override
@@ -103,4 +110,5 @@ public class Edit_Equipa extends AppCompatActivity {
         };
         VolleySingleton.getInstance(this).addToRequestQueue(postRequest);
     }
+
 }

@@ -19,65 +19,17 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:layout_marginTop="50dp"
-            android:textSize="30sp"
             android:text="Pavilhões existentes"
+
+            android:textSize="25dp"
             android:textColor="#000000"
-            android:shadowColor="#5F000000"
             android:shadowDx="10"
             android:shadowDy="10"
-            android:shadowRadius="0.1" />
+            android:shadowRadius="0.1"
+            android:textAllCaps="true"
+            android:visibility="visible"/>
 
     </RelativeLayout>
-
-<!--
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/TESTE"
-        android:layout_below="@id/PavilhaoLayout">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/nome"
-            android:layout_toRightOf="@id/id"
-            android:layout_marginLeft="12dp"
-            android:text="NOME"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/rua"
-            android:layout_toRightOf="@id/nome"
-            android:layout_marginLeft="12dp"
-            android:text="RUA"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/localidade"
-            android:layout_toRightOf="@id/rua"
-            android:layout_marginLeft="12dp"
-            android:text="LOCALIDADE"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/distancia"
-            android:layout_toRightOf="@id/localidade"
-            android:layout_marginLeft="12dp"
-            android:text="DISTANCIA"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/id"
-            android:layout_marginLeft="12dp"
-            android:text="ID"/>
-
-
-    </RelativeLayout>
--->
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -90,7 +42,7 @@
             android:id="@+id/lista"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:dividerHeight="10dip" />
+            android:dividerHeight="3dip" />
 
 
     </RelativeLayout>

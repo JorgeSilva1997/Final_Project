@@ -62,6 +62,7 @@ public class Main_admin extends AppCompatActivity {
 
     public void btnEquipa(View view) {
         Intent intent = new Intent(Main_admin.this, Equipa.class);
+        intent.putExtra("ID", id);
         startActivity(intent);
     }
 

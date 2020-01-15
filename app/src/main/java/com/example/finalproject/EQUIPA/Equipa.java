@@ -37,6 +37,7 @@ public class Equipa extends AppCompatActivity {
     String prefix_url = "http://andrefelix.dynip.sapo.pt/projetofinalpm/index.php/api";
     ArrayList<Equipa_Model> arrayEquipa = new ArrayList<>();
     ListView lista;
+    int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +47,8 @@ public class Equipa extends AppCompatActivity {
         registerForContextMenu(lista);
         filllista();
 
+
+        id = getIntent().getIntExtra("ID", -1);
 
     }
     private void filllista(){
@@ -67,12 +70,6 @@ public class Equipa extends AppCompatActivity {
 
                                     JSONObject object1 = array.getJSONObject(i);
                                     arrayEquipa.add(new Equipa_Model(object1.getString("id"), object1.getString("nome")));
-                                    //id.setText(object1.getString("id"));
-                                    //nome.setText(object1.getString("nome"));
-                                    //password.setText(object1.getString("password"));
-                                    //email.setText(object1.getString("email"));
-                                    //numero.setText(String.valueOf(object1.getInt("number")));
-                                    //nif.setText(String.valueOf(object1.getInt("nif")));
                                     MyArrayAdapterEquipa itemsAdapter = new MyArrayAdapterEquipa(Equipa.this, arrayEquipa);
                                     ((ListView) findViewById(R.id.lista)).setAdapter(itemsAdapter);
                                 }
@@ -111,6 +108,7 @@ public class Equipa extends AppCompatActivity {
             case R.id.Add:
                 arrayEquipa.removeAll(arrayEquipa);
                 Intent intent = new Intent(Equipa.this, Regist_Equipa.class);
+                intent.putExtra("ID", id);
                 startActivity(intent);
                 filllista();
             default:

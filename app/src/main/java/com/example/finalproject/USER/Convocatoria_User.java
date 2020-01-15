@@ -39,20 +39,14 @@ public class Convocatoria_User extends AppCompatActivity {
     TextView user;
 
     ArrayList<Convocatoria_Model> arrayConvocatoria= new ArrayList<>();
-
+    ListView lista;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.convocatoria_user);
+        setContentView(R.layout.convocatoria);
 
-        numero = (TextView) findViewById(R.id.id_convocatoria);
-        data = (TextView) findViewById(R.id.datahora);
-        prova = (TextView) findViewById(R.id.prova_nome);
-        escalao = (TextView) findViewById(R.id.escalao_nome);
-        equipa_visitada = (TextView) findViewById(R.id.equipa_visitada_nome);
-        equipa_visitante = (TextView) findViewById(R.id.equipa_visitante_nome);
-        pavilhao = (TextView) findViewById(R.id.pavilhao_nome);
-        user = (TextView) findViewById(R.id.user_nome);
+        lista = (ListView) findViewById(R.id.lista);
+        registerForContextMenu(lista);
 
         //id = getIntent().getIntExtra("ID", -1);
         //tipo = getIntent().getIntExtra("TIPO", -1);
@@ -84,16 +78,8 @@ public class Convocatoria_User extends AppCompatActivity {
                                             object1.getString("user_nome")));
 
                                     // TextViews para passar os parametros
-                                    numero.setText(object1.getString("id_convocatoria"));
-                                    data.setText(object1.getString("datahora"));
-                                    prova.setText(object1.getString("prova_nome"));
-                                    escalao.setText(object1.getString("escalao_nome"));
-                                    equipa_visitada.setText(object1.getString("equipa_visitada_nome"));
-                                    equipa_visitante.setText(object1.getString("equipa_visitante_nome"));
-                                    pavilhao.setText(object1.getString("pavilhao_nome"));
-                                    user.setText(object1.getString("user_nome"));
-
-
+                                    MyArrayAdapterConvocatoria itemsAdapter = new MyArrayAdapterConvocatoria(Convocatoria_User.this, arrayConvocatoria);
+                                    ((ListView) findViewById(R.id.lista)).setAdapter(itemsAdapter);
 
                                 }
                             } else {

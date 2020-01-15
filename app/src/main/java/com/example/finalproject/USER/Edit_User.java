@@ -38,18 +38,18 @@ public class Edit_User extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.regist);
+        setContentView(R.layout.edit_user);
 
         tipo = 0;
         EditText name = (EditText) findViewById(R.id.name);
-        EditText pass = (EditText) findViewById(R.id.password);
+        //EditText pass = (EditText) findViewById(R.id.password);
         EditText mail = (EditText) findViewById(R.id.email);
         EditText numero = (EditText) findViewById(R.id.number);
         EditText NIF = (EditText) findViewById(R.id.nif);
 
         id = getIntent().getStringExtra("ID");
         name.setText(getIntent().getStringExtra("nome"));
-        pass.setText(getIntent().getStringExtra("password"));
+        //pass.setText(getIntent().getStringExtra("password"));
         mail.setText(getIntent().getStringExtra("email"));
         numero.setText(getIntent().getStringExtra("number"));
         NIF.setText(getIntent().getStringExtra("nif"));
@@ -69,14 +69,14 @@ public class Edit_User extends AppCompatActivity {
     public void btnRegist(View view)
     {
         EditText name = (EditText) findViewById(R.id.name);
-        EditText pass = (EditText) findViewById(R.id.password);
+        //EditText pass = (EditText) findViewById(R.id.password);
         EditText mail = (EditText) findViewById(R.id.email);
         EditText numero = (EditText) findViewById(R.id.number);
         EditText NIF = (EditText) findViewById(R.id.nif);
         //final Spinner type = (Spinner) findViewById(R.id.spinnerTipo);
 
         String nome = name.getText().toString();
-        String password = pass.getText().toString();
+        //String password = pass.getText().toString();
         String email = mail.getText().toString();
         String number = numero.getText().toString();
         String nif = NIF.getText().toString();
@@ -89,11 +89,11 @@ public class Edit_User extends AppCompatActivity {
                     return;
                 }
 
-                if (TextUtils.isEmpty(password)) {
-                    pass.setError("Please enter your password");
-                    pass.requestFocus();
-                    return;
-                }
+//                if (TextUtils.isEmpty(password)) {
+//                    pass.setError("Please enter your password");
+//                    pass.requestFocus();
+//                    return;
+//                }
                 if (TextUtils.isEmpty(email)) {
                     mail.setError("Please enter your email");
                     mail.requestFocus();
@@ -110,7 +110,7 @@ public class Edit_User extends AppCompatActivity {
                     return;
                 }
                 else {
-                    insert(nome, password, email, number, nif, tipo);
+                    insert(nome, /*password,*/ email, number, nif, tipo);
                 }
     }
 
@@ -181,7 +181,7 @@ public class Edit_User extends AppCompatActivity {
                 );
 
     //Metodo INSERT
-    public void insert(String nome, String password, String email, String number, String nif, int tipo)
+    public void insert(String nome/*, String password*/, String email, String number, String nif, int tipo)
     {
         String url = prefix_url + "/users/update/" + id;
         Map<String, String> jsonParams = new HashMap<String, String>();
@@ -189,8 +189,8 @@ public class Edit_User extends AppCompatActivity {
         String tipoString = String.valueOf(tipo);
 
         jsonParams.put("nome", nome);
-        String passCheck = computeMD5Hash(password);
-        jsonParams.put("password", passCheck);
+        //String passCheck = computeMD5Hash(password);
+        //jsonParams.put("password", passCheck);
         jsonParams.put("email", email);
         jsonParams.put("number", number);
         jsonParams.put("nif", nif);

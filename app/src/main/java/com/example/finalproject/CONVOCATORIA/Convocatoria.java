@@ -81,12 +81,6 @@ public class Convocatoria extends AppCompatActivity {
                                             "vs. " + object1.getString("equipa_visitante_nome"), object1.getString("pavilhao_id"),
                                             object1.getString("pavilhao_nome"), object1.getString("user_id"),
                                             object1.getString("user_nome")));
-                                    //id.setText(object1.getString("id"));
-                                    //nome.setText(object1.getString("nome"));
-                                    //password.setText(object1.getString("password"));
-                                    //email.setText(object1.getString("email"));
-                                    //numero.setText(String.valueOf(object1.getInt("number")));
-                                    //nif.setText(String.valueOf(object1.getInt("nif")));
                                     MyArrayAdapterConvocatoria itemsAdapter = new MyArrayAdapterConvocatoria(Convocatoria.this, arrayConvocatoria);
                                     ((ListView) findViewById(R.id.lista)).setAdapter(itemsAdapter);
                                 }

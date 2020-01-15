@@ -18,10 +18,10 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnregist"
-        android:onClick="btnRegist"
+        android:id="@+id/btnupdate"
+        android:onClick="btnUpdate"
         android:layout_below="@+id/name"
-        android:hint="Regist"
+        android:hint="Atualizar"
         android:inputType="text"
         android:textSize="16dp"
         android:fontFamily="sans-serif-smallcaps"

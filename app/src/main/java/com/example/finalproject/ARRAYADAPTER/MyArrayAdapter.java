@@ -29,7 +29,7 @@ public class MyArrayAdapter extends ArrayAdapter<Pavilhao_Model>
         {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.listview_row, parent, false);
         }
-        ((TextView) convertView.findViewById(R.id.id)).setText(c.getID());
+//        ((TextView) convertView.findViewById(R.id.id)).setText(c.getID());
         ((TextView) convertView.findViewById(R.id.nome)).setText(c.getNOME());
 
         ((TextView) convertView.findViewById(R.id.rua)).setText(c.getRUA());
