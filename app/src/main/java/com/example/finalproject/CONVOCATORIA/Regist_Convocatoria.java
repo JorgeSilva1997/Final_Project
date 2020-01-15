@@ -55,7 +55,7 @@ public class Regist_Convocatoria extends AppCompatActivity {
     public void btnAdd(View view)
     {
 
-        //EditText Numerojogo = (EditText) findViewById(R.id.numeroJogo);
+        EditText Numerojogo = (EditText) findViewById(R.id.numeroJogo);
         EditText Data = (EditText) findViewById(R.id.datahora);
         EditText Prova = (EditText) findViewById(R.id.prova);
         EditText Escalao = (EditText) findViewById(R.id.escalao);
@@ -64,7 +64,7 @@ public class Regist_Convocatoria extends AppCompatActivity {
         EditText Pavilhao = (EditText) findViewById(R.id.pavilhao);
         EditText User = (EditText) findViewById(R.id.user);
 
-        //String id = Numerojogo.getText().toString();
+        String id = Numerojogo.getText().toString();
         String datahora = Data.getText().toString();
         String prova_id = Prova.getText().toString();
         String escalao_id = Escalao.getText().toString();
@@ -77,11 +77,11 @@ public class Regist_Convocatoria extends AppCompatActivity {
 
 
         //validating inputs
-                //if (TextUtils.isEmpty(id)) {
-                  //  Numerojogo.setError("Insira um número de jogo");
-                    //Numerojogo.requestFocus();
-                    //return;
-                //}
+                if (TextUtils.isEmpty(id)) {
+                    Numerojogo.setError("Insira um número de jogo");
+                    Numerojogo.requestFocus();
+                    return;
+                }
                 if (TextUtils.isEmpty(datahora)) {
                     Data.setError("Insira uma data");
                     Data.requestFocus();
@@ -119,18 +119,18 @@ public class Regist_Convocatoria extends AppCompatActivity {
                 }
                 else {
 
-                    add(/*id,*/ datahora, prova_id, escalao_id, eq_visitada_id, eq_visitante_id, pavilhao_id, user_id);
+                    add(id, datahora, prova_id, escalao_id, eq_visitada_id, eq_visitante_id, pavilhao_id, user_id);
                 }
     }
 
     //Metodo INSERT
-    public void add(/*String id,*/ String datahora, String prova_id, String escalao_id, String eq_visitada_id, String eq_visitante_id, String pavilhao_id, String user_id)
+    public void add(String id, String datahora, String prova_id, String escalao_id, String eq_visitada_id, String eq_visitante_id, String pavilhao_id, String user_id)
     {
         String url = prefix_url + "/teste/convocatoria/insert";
         //String url = "http://andrefelix.dynip.sapo.pt/projetofinalpm/index.php/api/userss/insert";
         Map<String, String> jsonParams = new HashMap<String, String>();
 
-        //jsonParams.put("id", id);
+        jsonParams.put("id", id);
 
         jsonParams.put("datahora", datahora);
 
@@ -145,7 +145,7 @@ public class Regist_Convocatoria extends AppCompatActivity {
         jsonParams.put("pavilhao_id", pavilhao_id);
 
         jsonParams.put("user_id", user_id);
-
+        Log.d("parametros json: ", "" + jsonParams);
         JsonObjectRequest postRequest = new JsonObjectRequest(Request.Method.POST, url,
 
                 new JSONObject(jsonParams),
