@@ -43,6 +43,7 @@
         android:layout_height="wrap_content"
         android:hint="Insira aqui o seu e-mail"
         android:textColorHint="#FFFFFF"
+        android:textColor="#FFFFFF"
         android:id="@+id/EditTextEmail"
         android:layout_below="@id/textinfo"
         android:layout_marginTop="12dp"

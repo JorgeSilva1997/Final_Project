@@ -23,11 +23,11 @@ public class CustomArrayAdapter extends ArrayAdapter<User_Model> {
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.perfil_user, parent, false);
         }
-        ((TextView) convertView.findViewById(R.id.EditTextNome)).setText(c.getNome());
-        ((TextView) convertView.findViewById(R.id.EditTextPassword)).setText(c.getPassword());
-        ((TextView) convertView.findViewById(R.id.EditTextEmail)).setText(String.valueOf(c.getEmail()));
-        ((TextView) convertView.findViewById(R.id.EditTextNumber)).setText(String.valueOf(c.getNumber()));
-        ((TextView) convertView.findViewById(R.id.EditTextNif)).setText(c.getNif());
+        //((TextView) convertView.findViewById(R.id.EditTextNome)).setText(c.getNome());
+        //((TextView) convertView.findViewById(R.id.EditTextPassword)).setText(c.getPassword());
+        //((TextView) convertView.findViewById(R.id.EditTextEmail)).setText(String.valueOf(c.getEmail()));
+        //((TextView) convertView.findViewById(R.id.EditTextNumber)).setText(String.valueOf(c.getNumber()));
+        //((TextView) convertView.findViewById(R.id.EditTextNif)).setText(c.getNif());
 
 
         return convertView;

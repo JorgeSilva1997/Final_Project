@@ -33,110 +33,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/WelcomeLayout"
-        android:layout_marginTop="125dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="75dp">
-    <!-- CAMPO NOME -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtNome"
-        android:text="Nome: "
-        android:textSize="22sp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/EditTextNome"
-                android:layout_toRightOf="@id/txtNome"
-                android:inputType="text"
-                android:textSize="22sp"
-                android:layout_marginLeft="12dp"
-                android:text="nome"/>
-    <!-- FIM CAMPO NOME -->
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
 
-    <!-- CAMPO PASSWORD -->
-        <TextView
-            android:layout_width="wrap_content"
+        <ListView
+            android:id="@+id/lista_user"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/txtPassword"
-            android:layout_below="@id/txtNome"
-            android:layout_marginTop="18dp"
-            android:text="Password: "
-            android:textSize="22sp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/EditTextPassword"
-            android:layout_toRightOf="@id/txtPassword"
-            android:layout_below="@id/txtNome"
-            android:layout_marginTop="18dp"
-            android:inputType="textPassword"
-            android:textSize="22sp"
-            android:layout_marginLeft="12dp" />
-    <!-- FIM CAMPO PASSWORD -->
-
-    <!-- CAMPO EMAIL -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtEmail"
-            android:layout_below="@id/txtPassword"
-            android:layout_marginTop="18dp"
-            android:text="Email: "
-            android:textSize="22sp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/EditTextEmail"
-            android:layout_toRightOf="@id/txtEmail"
-            android:layout_below="@id/txtPassword"
-            android:layout_marginTop="18dp"
-            android:inputType="textEmailAddress"
-            android:textSize="22sp"
-            android:layout_marginLeft="12dp" />
-    <!-- FIM CAMPO EMAIL -->
-
-    <!-- CAMPO NUMBER -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtNumber"
-            android:layout_below="@id/txtEmail"
-            android:layout_marginTop="18dp"
-            android:text="Número: "
-            android:textSize="22sp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/EditTextNumber"
-            android:layout_toRightOf="@id/txtNumber"
-            android:layout_below="@id/txtEmail"
-            android:layout_marginTop="18dp"
-            android:inputType="number"
-            android:textSize="22sp"
-            android:layout_marginLeft="12dp" />
-    <!-- FIM CAMPO NUMBER -->
-
-    <!-- CAMPO NIF -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtNif"
-            android:layout_below="@id/txtNumber"
-            android:layout_marginTop="18dp"
-            android:text="Nif: "
-            android:textSize="22sp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/EditTextNif"
-            android:layout_toRightOf="@id/txtNif"
-            android:layout_below="@id/txtNumber"
-            android:layout_marginTop="18dp"
-            android:inputType="number"
-            android:textSize="22sp"
-            android:layout_marginLeft="12dp" />
-    <!-- FIM CAMPO NIF -->
+            android:dividerHeight="3dip"
+            android:persistent="true" />
 
 </RelativeLayout>
 </RelativeLayout>

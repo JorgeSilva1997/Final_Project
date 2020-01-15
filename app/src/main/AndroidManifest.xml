@@ -57,6 +57,8 @@
         <activity android:name=".USER.MyPlay_User" />
         <activity android:name=".LOGIN.Forgot_Pass" />
         <activity android:name=".EQUIPA.Edit_Equipa" />
+        <activity android:name=".ESCALAO.Edit_Escalao"  />
+        <activity android:name=".PAVILHAO.Edit_Pavilhao"  />
 
         <service android:name=".Firebase.MyFirebaseMessagingService">
             <intent-filter>

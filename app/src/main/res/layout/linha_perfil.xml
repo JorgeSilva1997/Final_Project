@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- NOME -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome: "
+        android:textStyle="bold"
+        android:id="@+id/nomeSuport"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:textSize="20dp"
+        android:textColor="#000000"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/nome"
+        android:layout_toRightOf="@id/nomeSuport"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="3dp"
+
+        tools:ignore="MissingPrefix"
+        android:textSize="20dp"
+        android:textColor="#000000"/>
+    <!-- PASS -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password: "
+        android:textStyle="bold"
+        android:id="@+id/passSuport"
+        android:layout_below="@id/nomeSuport"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:textSize="20dp"
+        android:textColor="#000000"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pass"
+        android:inputType="textPassword"
+        android:layout_toRightOf="@id/passSuport"
+        android:layout_below="@id/nome"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="3dp"
+
+        tools:ignore="MissingPrefix"
+        android:textSize="20dp"
+        android:textColor="#000000"/>
+    <!-- MAIL -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email: "
+        android:textStyle="bold"
+        android:id="@+id/mailSuport"
+        android:layout_below="@id/passSuport"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:textSize="20dp"
+        android:textColor="#000000"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/email"
+        android:layout_toRightOf="@id/mailSuport"
+        android:layout_below="@id/pass"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="3dp"
+        android:textColor="#0000ff"
+        tools:ignore="MissingPrefix"
+        android:textSize="20dp"/>
+    <!-- NUMBER -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Numero: "
+        android:textStyle="bold"
+        android:id="@+id/numberSuport"
+        android:layout_below="@id/mailSuport"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:textSize="20dp"
+        android:textColor="#000000"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/number"
+        android:layout_toRightOf="@id/numberSuport"
+        android:layout_below="@id/email"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="3dp"
+
+        tools:ignore="MissingPrefix"
+        android:textSize="20dp"
+        android:textColor="#000000"/>
+    <!-- NIF -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nif: "
+        android:textStyle="bold"
+        android:id="@+id/nifSuport"
+        android:layout_toRightOf="@id/number"
+        android:layout_below="@id/email"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="25dp"
+        android:textSize="20dp"
+        android:textColor="#000000"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/nif"
+        android:layout_toRightOf="@id/nifSuport"
+        android:layout_below="@id/email"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="3dp"
+
+        tools:ignore="MissingPrefix"
+        android:textSize="20dp"
+        android:textColor="#000000"/>
+
+</RelativeLayout>

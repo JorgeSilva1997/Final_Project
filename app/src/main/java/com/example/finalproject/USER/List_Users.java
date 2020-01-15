@@ -139,6 +139,7 @@ public class List_Users extends AppCompatActivity {
                 intent.putExtra("nif", arrayUsers.get(itemPosition).nif);
                 intent.putExtra("tipo", arrayUsers.get(itemPosition).tipo);
                 startActivity(intent);
+                arrayUsers.removeAll(arrayUsers);
                 return true;
             case R.id.remover:
                 AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
@@ -155,6 +156,7 @@ public class List_Users extends AppCompatActivity {
                                 int itemPosition = info.position;
                                 String idremove = arrayUsers.get(itemPosition).id;
                                 deleteFromBD(idremove);
+                                arrayUsers.removeAll(arrayUsers);
                                 filllista();
                             }
                         });

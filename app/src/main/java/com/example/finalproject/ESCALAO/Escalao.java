@@ -66,12 +66,6 @@ public class Escalao extends AppCompatActivity {
 
                                     JSONObject object1 = array.getJSONObject(i);
                                     arrayEscalao.add(new Escalao_Model(object1.getString("id"), object1.getString("nome")));
-                                    //id.setText(object1.getString("id"));
-                                    //nome.setText(object1.getString("nome"));
-                                    //password.setText(object1.getString("password"));
-                                    //email.setText(object1.getString("email"));
-                                    //numero.setText(String.valueOf(object1.getInt("number")));
-                                    //nif.setText(String.valueOf(object1.getInt("nif")));
                                     MyArrayAdapterEscalao itemsAdapter = new MyArrayAdapterEscalao(Escalao.this, arrayEscalao);
                                     ((ListView) findViewById(R.id.lista)).setAdapter(itemsAdapter);
                                 }

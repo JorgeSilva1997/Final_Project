@@ -1,6 +1,7 @@
 package com.example.finalproject.USER;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -11,7 +12,9 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.finalproject.ARRAYADAPTER.MyArrayAdapterConvocatoria;
 import com.example.finalproject.ARRAYADAPTER.MyArrayAdapterEscalao;
+import com.example.finalproject.ARRAYADAPTER.MyArrayAdapterPerfil;
 import com.example.finalproject.ARRAYADAPTER.MyArrayAdapterUser;
 import com.example.finalproject.ESCALAO.Escalao;
 import com.example.finalproject.R;
@@ -28,11 +31,8 @@ public class Perfil_User extends AppCompatActivity {
     String prefix_url = "http://andrefelix.dynip.sapo.pt/projetofinalpm/index.php";
     int id;
 
-    TextView nome;
-    TextView password;
-    TextView email;
-    TextView numero;
-    TextView nif;
+
+    ListView lista_user;
 
     ArrayList<User_Model> arrayUser = new ArrayList<>();
 
@@ -42,11 +42,9 @@ public class Perfil_User extends AppCompatActivity {
         setContentView(R.layout.perfil_user);
         id = getIntent().getIntExtra("ID", -1);
 
-        nome = (TextView) findViewById(R.id.EditTextNome);
-        password = (TextView) findViewById(R.id.EditTextPassword);
-        email = (TextView) findViewById(R.id.EditTextEmail);
-        numero = (TextView) findViewById(R.id.EditTextNumber);
-        nif = (TextView) findViewById(R.id.EditTextNif);
+        lista_user = (ListView) findViewById(R.id.lista_user);
+
+        Toast.makeText(Perfil_User.this, "" + id, Toast.LENGTH_SHORT).show();
 
         perfil();
     }
@@ -68,16 +66,10 @@ public class Perfil_User extends AppCompatActivity {
                                 for (int i = 0; i < array.length(); i++) {
 
                                     JSONObject object1 = array.getJSONObject(i);
-                                    arrayUser.add(new User_Model(object1.getString("id"), object1.getString("nome"),
-                                            object1.getString("password"), object1.getString("email"),
-                                            object1.getString("number"), object1.getString("nif"), object1.getString("tipo")));
+                                    arrayUser.add(new User_Model(object1.getString("id"), object1.getString("nome"), object1.getString("password"), object1.getString("email"), object1.getString("number"), object1.getString("nif"), object1.getString("tipo")));
+                                    MyArrayAdapterPerfil itemsAdapter = new MyArrayAdapterPerfil(Perfil_User.this, arrayUser);
+                                    ((ListView) findViewById(R.id.lista_user)).setAdapter(itemsAdapter);
 
-                                    //arrayUser.add(new User_Model(object1.getString("id"), object1.getString("nome"), object1.getString("password"), object1.getString("email"), object1.getString("number"), object1.getString("nif"), object1.getString("tipo")));
-                                    nome.setText(object1.getString("nome"));
-                                    password.setText(object1.getString("password"));
-                                    email.setText(object1.getString("email"));
-                                    numero.setText(String.valueOf(object1.getInt("number")));
-                                    nif.setText(String.valueOf(object1.getInt("nif")));
                                 }
 
                             } else {
@@ -85,7 +77,6 @@ public class Perfil_User extends AppCompatActivity {
                             }
                         } catch (JSONException ex) {
                             Toast.makeText(Perfil_User.this, "Erro 1!", Toast.LENGTH_SHORT).show();
-                            Toast.makeText(Perfil_User.this, "" + nome, Toast.LENGTH_SHORT).show();
 
                         }
                     }

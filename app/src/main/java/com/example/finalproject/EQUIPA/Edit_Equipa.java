@@ -1,5 +1,6 @@
 package com.example.finalproject.EQUIPA;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -45,7 +46,7 @@ public class Edit_Equipa extends AppCompatActivity {
 
         String nome = name.getText().toString();
 
-        Button update = (Button) findViewById(R.id.btnupdate);
+        Button update = (Button) findViewById(R.id.btnregist);
 
         //validating inputs
                 if (TextUtils.isEmpty(nome)) {
@@ -76,13 +77,13 @@ public class Edit_Equipa extends AppCompatActivity {
                             boolean status = response.getBoolean("status");
                             if (status) {
                                 //Bloco de codigo
-                                Toast.makeText(Edit_Equipa.this, "Inserido com sucesso!", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(Edit_Equipa.this, "Inserido com sucesso!", Toast.LENGTH_SHORT).show();
                                 finish();
 
                             } else {
 
                                 //Bloco de codigo
-                                Toast.makeText(Edit_Equipa.this, "Erro na inserção!", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(Edit_Equipa.this, "Erro na inserção!", Toast.LENGTH_SHORT).show();
 
                             }
                         } catch (JSONException ex) {
@@ -95,6 +96,8 @@ public class Edit_Equipa extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
                         //Log.d("regist3", "" + error.getMessage());
                         //Toast.makeText(Edit_Equipa.this, "Erro 2!", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(Edit_Equipa.this, Equipa.class);
+                        startActivity(intent);
                     }
                 }) {
             @Override

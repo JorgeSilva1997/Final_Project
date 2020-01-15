@@ -1,5 +1,6 @@
 package com.example.finalproject.USER;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -209,24 +210,27 @@ public class Edit_User extends AppCompatActivity {
                             if (status) {
 
                                 //Bloco de codigo
-                                Toast.makeText(Edit_User.this, "Inserido com sucesso!", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(Edit_User.this, "Inserido com sucesso!", Toast.LENGTH_SHORT).show();
                                 finish();
 
                             } else {
 
                                 //Bloco de codigo
-                                Toast.makeText(Edit_User.this, "Erro na inserção!", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(Edit_User.this, "Erro na inserção!", Toast.LENGTH_SHORT).show();
 
                             }
                         } catch (JSONException ex) {
                             Log.d("regist", "" + ex);
+                           // Toast.makeText(Edit_User.this, "Adeus!", Toast.LENGTH_SHORT).show();
                         }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(Edit_User.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(Edit_User.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(Edit_User.this, List_Users.class);
+                        startActivity(intent);
                     }
                 }) {
             @Override

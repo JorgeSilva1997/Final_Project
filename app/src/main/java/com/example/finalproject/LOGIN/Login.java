@@ -1,5 +1,6 @@
 package com.example.finalproject.LOGIN;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 
@@ -25,7 +26,11 @@ import com.example.finalproject.R;
 import com.example.finalproject.VolleySingleton;
 import com.example.finalproject.md5;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
 
 
 import java.math.BigInteger;
@@ -38,8 +43,7 @@ import org.json.JSONObject;
 public class Login extends AppCompatActivity {
 
 // TESTE
-    private FirebaseAuth mAuth;
-    private GoogleApiClient mGoog;
+    private FirebaseAuth firebaseAuth;
 //
     String prefix_url = "http://andrefelix.dynip.sapo.pt/projetofinalpm/index.php/api";
     // Este ID é devido a ser Multi-User_Model
@@ -68,7 +72,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.login);
 
         // TESTE
-        //mAuth = FirebaseAuth.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
         //
     }
     public void btnLogin(View view) {
@@ -93,7 +97,23 @@ public class Login extends AppCompatActivity {
         else {
 
             autenticacao(nome, password);
+            autenticacao_firebase(nome, password);
         }
+    }
+
+    public void autenticacao_firebase(String nome, String password) {
+
+        firebaseAuth.createUserWithEmailAndPassword(nome, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful())    {
+                    Toast.makeText(Login.this, "Registado com sucesso", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(Login.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     public void autenticacao(String nome, String password)  {
