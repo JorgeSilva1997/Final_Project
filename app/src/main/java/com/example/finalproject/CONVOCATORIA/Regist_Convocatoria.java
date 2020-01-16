@@ -12,6 +12,7 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import android.widget.Spinner;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
@@ -19,6 +20,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.finalproject.ARRAYADAPTER.MyArrayAdapterConvocatoria;
 import com.example.finalproject.ARRAYADAPTER.MyArrayAdapterEquipa;
 import com.example.finalproject.ARRAYADAPTER.MyArrayAdapterProva;
 import com.example.finalproject.EQUIPA.Equipa_Model;
@@ -37,10 +39,11 @@ import java.util.Map;
 
 
 public class Regist_Convocatoria extends AppCompatActivity {
+    Spinner spinner;
 
     String prefix_url = "http://andrefelix.dynip.sapo.pt/projetofinalpm/index.php/api";
 
-    ArrayList<Equipa_Model> arrayEquipa = new ArrayList<>();
+    ArrayList<Convocatoria_ModelRegist> arrayRegistEquipa = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,6 +125,88 @@ public class Regist_Convocatoria extends AppCompatActivity {
                     add(id, datahora, prova_id, escalao_id, eq_visitada_id, eq_visitante_id, pavilhao_id, user_id);
                 }
     }
+    //prenche spinner
+    private void preenchespinner() {
+        spinner = findViewById(R.id.spinner);
+
+        //GET INFO DA BD
+        arrayRegistEquipa.removeAll(arrayRegistEquipa);
+
+        /////////////////////////   GET     /////////////////////////
+        String url = prefix_url + "/equipass";
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            boolean status = response.getBoolean("status");
+                            if (status) {
+
+                                JSONArray array = response.getJSONArray("DATA");
+
+                                for (int i = 0; i < array.length(); i++) {
+
+                                    JSONObject object1 = array.getJSONObject(i);
+                                    String[] options = {object1.getString("id"),
+                                            object1.getString("nome")};
+
+                                   ArrayAdapter dados = new ArrayAdapter(this,  spinner, options);
+                                    dados.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+                                    spinner.setAdapter(dados);
+                                }
+                            } else {
+                                Toast.makeText(Regist_Convocatoria.this, "" + status, Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException ex) {
+                            Toast.makeText(Regist_Convocatoria.this, "Erro 1!", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(Regist_Convocatoria.this, "Erro 2!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+        VolleySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
+
+
+
+
+
+
+        ArrayAdapter a = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, options);
+        a.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+        spinner.setAdapter(a);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 0) { //todos
+                    preenchelista();
+                }
+                if (position == 1) {       //amigos
+                    preenchelista2(1);
+                }
+                if (position == 2) {        //familia
+                    //Familia
+                    preenchelista2(2);
+                }
+                if (position == 3) {        //trabalho
+                    preenchelista2(3);
+                }
+                if (position == 4) {        //outro
+                    preenchelista2(4);
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+    }
+
+
+    //preenche spinner
 
     //Metodo INSERT
     public void add(String id, String datahora, String prova_id, String escalao_id, String eq_visitada_id, String eq_visitante_id, String pavilhao_id, String user_id)
