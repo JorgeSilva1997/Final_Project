@@ -70,14 +70,12 @@ public class Edit_User extends AppCompatActivity {
     public void btnRegist(View view)
     {
         EditText name = (EditText) findViewById(R.id.name);
-        //EditText pass = (EditText) findViewById(R.id.password);
         EditText mail = (EditText) findViewById(R.id.email);
         EditText numero = (EditText) findViewById(R.id.number);
         EditText NIF = (EditText) findViewById(R.id.nif);
         //final Spinner type = (Spinner) findViewById(R.id.spinnerTipo);
 
         String nome = name.getText().toString();
-        //String password = pass.getText().toString();
         String email = mail.getText().toString();
         String number = numero.getText().toString();
         String nif = NIF.getText().toString();
@@ -89,12 +87,6 @@ public class Edit_User extends AppCompatActivity {
                     name.requestFocus();
                     return;
                 }
-
-//                if (TextUtils.isEmpty(password)) {
-//                    pass.setError("Please enter your password");
-//                    pass.requestFocus();
-//                    return;
-//                }
                 if (TextUtils.isEmpty(email)) {
                     mail.setError("Please enter your email");
                     mail.requestFocus();

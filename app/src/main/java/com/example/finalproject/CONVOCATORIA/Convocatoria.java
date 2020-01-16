@@ -137,7 +137,7 @@ public class Convocatoria extends AppCompatActivity {
         Context mContext = this;
         switch (item.getItemId()) {
             case R.id.editar:
-                Intent intent = new Intent(Convocatoria.this, Edit_Pavilhao.class);
+                Intent intent = new Intent(Convocatoria.this, Edit_Convocatoria.class);
                 int itemPosition = info.position;
                 String id = arrayConvocatoria.get(itemPosition).id_convocatoria;
                 intent.putExtra("ID", id);

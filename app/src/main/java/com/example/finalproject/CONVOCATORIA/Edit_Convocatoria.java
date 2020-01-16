@@ -31,52 +31,110 @@ public class Edit_Convocatoria extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.regist_pavilhao);
-        EditText name = (EditText) findViewById(R.id.name);
-        EditText rua = (EditText) findViewById(R.id.rua);
-        EditText localidade = (EditText) findViewById(R.id.localidade);
-        EditText distancia = (EditText) findViewById(R.id.distancia);
+        setContentView(R.layout.edit_convocatoria);
 
-        id = getIntent().getStringExtra("ID");
-        name.setText(getIntent().getStringExtra("nome"));
-        rua.setText(getIntent().getStringExtra("rua"));
-        localidade.setText(getIntent().getStringExtra("localidade"));
-        distancia.setText(getIntent().getStringExtra("distancia"));
+        EditText Numerojogo = (EditText) findViewById(R.id.numeroJogo);
+        EditText Data = (EditText) findViewById(R.id.datahora);
+        EditText Prova = (EditText) findViewById(R.id.prova);
+        EditText Escalao = (EditText) findViewById(R.id.escalao);
+        EditText Eq_visitada = (EditText) findViewById(R.id.equipa_visitada);
+        EditText Eq_visitante = (EditText) findViewById(R.id.equipa_visitante);
+        EditText Pavilhao = (EditText) findViewById(R.id.pavilhao);
+        EditText User = (EditText) findViewById(R.id.user);
+
+        //id = getIntent().getStringExtra("ID");
+        Numerojogo.setText(getIntent().getStringExtra("ID"));
+        Data.setText(getIntent().getStringExtra("datahora"));
+        Prova.setText(getIntent().getStringExtra("prova_id"));
+        Escalao.setText(getIntent().getStringExtra("escalao_id"));
+        Eq_visitada.setText(getIntent().getStringExtra("equipa_visitada_id"));
+        Eq_visitante.setText(getIntent().getStringExtra("equipa_visitante_id"));
+        Pavilhao.setText(getIntent().getStringExtra("pavilhao_id"));
+        User.setText(getIntent().getStringExtra("user_id"));
     }
 
     public void btnRegist(View view)
     {
-        EditText name = (EditText) findViewById(R.id.name);
-        EditText road = (EditText) findViewById(R.id.rua);
-        EditText place = (EditText) findViewById(R.id.localidade);
-        EditText distance = (EditText) findViewById(R.id.distancia);
+        EditText Numerojogo = (EditText) findViewById(R.id.numeroJogo);
+        EditText Data = (EditText) findViewById(R.id.datahora);
+        EditText Prova = (EditText) findViewById(R.id.prova);
+        EditText Escalao = (EditText) findViewById(R.id.escalao);
+        EditText Eq_visitada = (EditText) findViewById(R.id.equipa_visitada);
+        EditText Eq_visitante = (EditText) findViewById(R.id.equipa_visitante);
+        EditText Pavilhao = (EditText) findViewById(R.id.pavilhao);
+        EditText User = (EditText) findViewById(R.id.user);
 
-        String nome = name.getText().toString();
-        String rua = road.getText().toString();
-        String localidade = place.getText().toString();
-        String distancia = distance.getText().toString();
+        String numerojogo = Numerojogo.getText().toString();
+        String data = Data.getText().toString();
+        String prova = Prova.getText().toString();
+        String escalao = Escalao.getText().toString();
+        String eq_visitada = Eq_visitada.getText().toString();
+        String eq_visitante = Eq_visitante.getText().toString();
+        String pavilhao = Pavilhao.getText().toString();
+        String user = User.getText().toString();
 
         Button regist = (Button) findViewById(R.id.btnregist);
 
         //validating inputs
-                if (TextUtils.isEmpty(nome)) {
-                    name.setError("Please enter the name of the pavilion");
-                    name.requestFocus();
+                if (TextUtils.isEmpty(numerojogo)) {
+                    Numerojogo.setError("Por favor preencha o campo numero do jogo.");
+                    Numerojogo.requestFocus();
                     return;
-                }else {
-                    insert(nome, rua, localidade, distancia);
+                }
+                if (TextUtils.isEmpty(data)) {
+                    Data.setError("Por favor preencha o campo data.");
+                    Data.requestFocus();
+                    return;
+                }
+                if (TextUtils.isEmpty(prova)) {
+                    Prova.setError("Por favor preencha o campo prova.");
+                    Prova.requestFocus();
+                    return;
+                }
+                if (TextUtils.isEmpty(escalao)) {
+                    Escalao.setError("Por favor preencha o campo escalao.");
+                    Escalao.requestFocus();
+                    return;
+                }
+                if (TextUtils.isEmpty(eq_visitada)) {
+                    Eq_visitada.setError("Por favor preencha o campo equipa visitada.");
+                    Eq_visitada.requestFocus();
+                    return;
+                }
+                if (TextUtils.isEmpty(eq_visitante)) {
+                    Eq_visitante.setError("Por favor preencha o campo equipa visitante.");
+                    Eq_visitante.requestFocus();
+                    return;
+                }
+                if (TextUtils.isEmpty(pavilhao)) {
+                    Pavilhao.setError("Por favor preencha o campo pavilhão.");
+                    Pavilhao.requestFocus();
+                    return;
+                }
+                if (TextUtils.isEmpty(user)) {
+                    User.setError("Por favor preencha o campo user.");
+                    User.requestFocus();
+                    return;
+                }
+                else {
+                    update(numerojogo, data, prova, escalao, eq_visitada, eq_visitante, pavilhao, user);
                 }
     }
 
-    //Metodo INSERT
-    public void insert(String nome, String rua, String localidade, String distancia){
-        String url = prefix_url + "/convocatoria/update/" + id;
-        Log.d("updateabd; ID", id + "; NOME: " + nome);
+    //Metodo UPDATE
+    public void update(String numerojogo, String data, String prova, String escalao, String eq_visitada, String eq_visitante, String pavilhao, String user){
+
+        String url = prefix_url + "/api/convocatoria/" + id + "/update";
+        Log.d("updateabd; ID", id + "; NOME: " + numerojogo);
         Map<String, String> jsonParams = new HashMap<String, String>();
-        jsonParams.put("nome", nome);
-        jsonParams.put("rua", rua);
-        jsonParams.put("localidade", localidade);
-        jsonParams.put("distancia", distancia);
+        jsonParams.put("ID", numerojogo);
+        jsonParams.put("datahora", data);
+        jsonParams.put("prova_id", prova);
+        jsonParams.put("escalao_id", escalao);
+        jsonParams.put("eq_visitada_id", eq_visitada);
+        jsonParams.put("eq_visitante_id", eq_visitante);
+        jsonParams.put("pavilhao_id", pavilhao);
+        jsonParams.put("user_id", user);
 
         JsonObjectRequest postRequest = new JsonObjectRequest(Request.Method.POST, url,
                 new JSONObject(jsonParams),
@@ -86,13 +144,13 @@ public class Edit_Convocatoria extends AppCompatActivity {
                         try {
                             if (response.getBoolean("status")) {
                                 //Bloco de codigo
-                                Toast.makeText(Edit_Convocatoria.this, "Inserido com sucesso!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Edit_Convocatoria.this, "Atualizado com sucesso!", Toast.LENGTH_SHORT).show();
                                 finish();
 
                             } else {
 
                                 //Bloco de codigo
-                                Toast.makeText(Edit_Convocatoria.this, "Erro na inserção!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Edit_Convocatoria.this, "Erro ao atualizar!", Toast.LENGTH_SHORT).show();
 
                             }
                         } catch (JSONException ex) {

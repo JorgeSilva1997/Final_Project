@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:background="#FFFFFF">
+
+    <!-- NUMERO JOGO -->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/numeroJogo"
+        android:inputType="number"
+        android:layout_marginTop="75dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:hint="Numero de jogo"/>
+
+    <!-- DATA E HORA DE JOGO -->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/datahora"
+        android:inputType="datetime"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:hint="Hora do jogo (0000-00-00 00:00:00)"
+        android:layout_below="@id/numeroJogo"/>
+
+    <!-- TIPO DE PROVA -->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/prova"
+        android:layout_below="@id/datahora"
+        android:inputType="number"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:hint="Prova "/>
+
+    <!-- ESCALAO -->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/escalao"
+        android:inputType="number"
+        android:layout_below="@id/prova"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:hint="Escalao"/>
+
+    <!-- EQUIPA VISITADA -->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/equipa_visitada"
+        android:layout_below="@id/escalao"
+        android:inputType="number"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:hint="Equipa Visitada"/>
+
+    <!-- EQUIPA VISISTANTE -->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/equipa_visitante"
+        android:layout_below="@id/equipa_visitada"
+        android:inputType="number"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:hint="Equipa Visitante"/>
+
+    <!-- PAVILHAO-->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/pavilhao"
+        android:layout_below="@id/equipa_visitante"
+        android:inputType="number"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:hint="Local (Pavilhao)"/>
+
+    <!-- User -->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/user"
+        android:layout_below="@id/pavilhao"
+        android:inputType="number"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:hint="Árbitro do Jogo"/>
+
+
+    <!-- BOTÃO -->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnadd"
+        android:onClick="btnAdd"
+        android:layout_below="@+id/user"
+        android:hint="Editar nomeação"
+        android:inputType="text"
+        android:textSize="16dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"/>
+
+</RelativeLayout>
