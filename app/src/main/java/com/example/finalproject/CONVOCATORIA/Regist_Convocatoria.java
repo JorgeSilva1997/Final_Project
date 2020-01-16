@@ -49,7 +49,7 @@ public class Regist_Convocatoria extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.registo_convocatoria);
-
+        preenchespinner();
         // usado dentro so status para receber o id de cada equipa
         // int tipo = response.getInt("tipo");
 
@@ -144,14 +144,13 @@ public class Regist_Convocatoria extends AppCompatActivity {
                             if (status) {
 
                                 JSONArray array = response.getJSONArray("DATA");
-
+                                ArrayList options = new ArrayList<String>();
                                 for (int i = 0; i < array.length(); i++) {
 
                                     JSONObject object1 = array.getJSONObject(i);
-                                    String[] options = {object1.getString("id"),
-                                            object1.getString("nome")};
+                                    options.add(object1.getString("nome"));
 
-                                   ArrayAdapter dados = new ArrayAdapter(this,  spinner, options);
+                                   ArrayAdapter dados = new ArrayAdapter(Regist_Convocatoria.this,  R.layout.support_simple_spinner_dropdown_item, options);
                                     dados.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
                                     spinner.setAdapter(dados);
                                 }
@@ -171,38 +170,32 @@ public class Regist_Convocatoria extends AppCompatActivity {
         VolleySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
 
 
-
-
-
-
-        ArrayAdapter a = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, options);
-        a.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-        spinner.setAdapter(a);
-
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0) { //todos
-                    preenchelista();
+
                 }
                 if (position == 1) {       //amigos
-                    preenchelista2(1);
+
                 }
                 if (position == 2) {        //familia
                     //Familia
-                    preenchelista2(2);
+
                 }
                 if (position == 3) {        //trabalho
-                    preenchelista2(3);
+
                 }
                 if (position == 4) {        //outro
-                    preenchelista2(4);
+
                 }
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+
+
     }
 
 
